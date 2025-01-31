@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .ui-btn {
+        @apply flex items-center justify-center rounded-md text-center font-medium text-white p-3
+    }
+}
+
+
+.circle-animate {
+    background: linear-gradient(45deg, #ff6b6b, #1D4ED8, #E3742D, #4834d4);
+    background-size: 300% 300%;
+    animation: gradientAnimation 6s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
