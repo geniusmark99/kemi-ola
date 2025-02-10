@@ -27,7 +27,6 @@
             <div class="flex flex-col gap-y-10">
 
                 <div class="grid grid-cols-1 mx-4 lg:mx-10 md:grid-cols-3 gap-8">
-
                     @foreach ($courses as $course)
                         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all overflow-hidden">
                             <img src="{{ $course->course_thumbnail_url }}" alt="Course"
@@ -39,17 +38,13 @@
                                 {{ $course->course_description }}
                             </p>
                             <div class="flex justify-between items-center">
-                                <span class="text-lg font-semibold text-gray-700">$ {{ $course->course_price }}</span>
+                                <span class="text-lg font-semibold text-gray-700">&pound; {{ $course->course_price }}</span>
 
-                                {{-- <a href="{{ route('student.courses-details', $course->id) }}"
-                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg">Enroll Now
-                                </a> --}}
+
 
                                 @if (!$course->isEnrolled())
                                     <form action="{{ route('payment.checkout', $course->id) }}" method="POST">
                                         @csrf
-                                        {{-- <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded">Enroll for
-                                            ${{ $course->price }}</button> --}}
 
                                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Enroll
                                             Now

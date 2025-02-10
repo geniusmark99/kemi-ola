@@ -1,6 +1,7 @@
-<div class="p-5 flex items-center w-full justify-between bg-kemi-ojo lg:fixed top-0 z-50 border-b border-kemi-ojo">
+<div
+    class="p-5 flex items-center w-full justify-between bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple lg:fixed top-0 z-50 border-b border-kemi-ojo">
     <a href="/">
-        <img alt="logo" class="block h-10 rtl:scale-x-[-1]" src="{{ asset('/images/protokos-logo.png') }}">
+        <img alt="logo" class="block h-10 rtl:scale-x-[-1]" src="{{ asset('/images/Protokos-logo.png') }}">
     </a>
 
     <div class="flex items-center justify-between gap-x-4">

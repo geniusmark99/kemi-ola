@@ -1,8 +1,8 @@
 <section>
-
     <header x-data="{
         lastScroll: 0,
         isVisible: true,
+        isEdeYourubaOnline: window.location.pathname === '/eko-ede-yoruba',
         handleScroll() {
             const currentScroll = window.scrollY;
             this.isVisible = currentScroll < this.lastScroll || currentScroll < 50;
@@ -11,7 +11,7 @@
     }" x-init="window.addEventListener('scroll', handleScroll)" :class="isVisible ? 'translate-y-0' : '-translate-y-full'"
         class="fixed top-0 left-0 w-full bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out">
         <nav
-            class="relative px-6 py-3 lg:py-5 flex justify-between items-center header-pattern bg-kemi-ojo border-b border-white">
+            class="relative px-6 py-3 lg:py-5 flex justify-between items-center header-pattern bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple  border-b border-white">
 
             @if (Route::is('home'))
                 <a class="text-3xl font-bold leading-none block" href="/">
@@ -49,35 +49,32 @@
                 </button>
             </div>
 
-            <ul
-                class="text-white hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
-                <li><a class="text-sm hover:text-kemi-ojo-2 hover:underline"
-                        :class="isActive('/') ? 'text-kemi-ojo-2 underline font-bold relative' : 'text-white'"
-                        href="/">
-                        Home
-                    </a></li>
+            <ul style="font-family: 'neueMachina-regular', sans-serif;"
+                class="header-navbar text-white hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
+                <li>
+                    <a href="/" :class="isActive('/') ? 'active' : ''"><span>Home</span></a>
+                </li>
 
 
-                <li><a class="text-sm hover:text-kemi-ojo-2 hover:underline"
-                        :class="isActive('/protokos-publishers') ? 'text-kemi-ojo-2 underline font-bold' : 'text-white'"
-                        href="{{ route('protokos') }}">
-                        Protokos Publishers
-                    </a></li>
+                <li>
+                    <a href="{{ route('protokos') }}"
+                        :class="isActive('/protokos-publishers') ? 'active' : ''"><span>Protokos Publishers</span></a>
+                </li>
 
-                <li><a class="text-sm hover:text-kemi-ojo-2 hover:underline"
-                        :class="isActive('/medical-ultrasound') ? 'text-kemi-ojo-2 underline' : 'text-white'"
-                        href="{{ route('medical') }}">Medical
-                        Ultrasound</a></li>
+                <li>
+                    <a href="{{ route('medical') }}"
+                        :class="isActive('/medical-ultrasound') ? 'active' : ''"><span>Medical
+                            Ultrasound</span></a>
+                </li>
 
-                <li><a class="text-sm hover:text-kemi-ojo-2 hover:underline"
-                        :class="isActive('/favour-store') ? 'text-kemi-ojo-2 underline' : 'text-white'"
-                        href="{{ route('favour') }}">Favour
-                        Store</a></li>
+                <li>
+                    <a href="{{ route('favour') }}" :class="isActive('/favour-store') ? 'active' : ''"><span>Favour
+                            Online</span></a>
+                </li>
 
-                <li><a :class="isActive('/eko-ede-yoruba') ? 'text-kemi-ojo-2 underline ' : 'text-white'"
-                        class="text-sm hover:text-kemi-ojo-2 hover:underline" href="{{ route('ede-yoruba') }}">
-                        Ẹ̀kọ́ Èdè Yorùbá
-                    </a>
+                <li>
+                    <a href="{{ route('ede-yoruba') }}" :class="isActive('/eko-ede-yoruba') ? 'active' : ''"><span>
+                            Ẹ̀kọ́ Èdè Yorùbá</span></a>
                 </li>
             </ul>
 
@@ -107,7 +104,7 @@
 
 
 
-                <a :class="isActive('/contact') ? 'bg-kemi-ojo font-bold text-white border-white' : 'bg-white hover:border-white'"
+                <a :class="isActive('/contact') ? 'kemi-ojo-bg font-bold text-white border-white' : 'bg-white hover:border-white'"
                     class="hidden lg:inline-block  border border-transparent hover:bg-kemi-ojo 
                     hover:text-white py-2 px-6  text-sm text-kemi-ojo font-bold rounded-l-xl rounded-t-xl 
                     transition duration-200"
@@ -129,7 +126,8 @@
             x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0"
             x-transition:leave-end="-translate-x-full" class="fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
             <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-            <nav class="relative flex flex-col py-6 px-6 h-full w-full bg-white border-r overflow-y-auto">
+            <nav class="relative flex flex-col py-6 px-6 h-full w-full bg-white border-r overflow-y-auto bg-no-repeat"
+                style="background-image: url('/images/grainy-noise.svg');">
                 <div class="flex items-center mb-8">
                     <a class="mr-auto text-3xl font-bold leading-none" href="#">
                         <img class="h-12" src="{{ asset('/images/Kemi-Logo.png') }}" alt="" width="auto">
@@ -150,50 +148,58 @@
 
                         <li class="mb-1"><a
                                 class="block p-4 text-sm font-semibold text-kemi-ojo hover:text-white hover:bg-kemi-ojo rounded"
-                                :class="isActive('/') ? 'text-kemi-ojo-2  bg-kemi-ojo font-bold' : ''"
+                                :class="isActive('/') ?
+                                    'text-white bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple font-bold' : ''"
                                 href="/">Home</a>
                         </li>
 
                         <li class="mb-1"><a
                                 class="block p-4 text-sm font-semibold text-kemi-ojo   hover:text-white hover:bg-kemi-ojo rounded"
-                                :class="isActive('/protokos-publishers') ? 'text-kemi-ojo-2  bg-kemi-ojo font-bold' : ''"
+                                :class="isActive('/protokos-publishers') ?
+                                    'text-white bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple font-bold' : ''"
                                 href="{{ route('protokos') }}">Protokos Publishers</a></li>
                         <li class="mb-1"><a
                                 class="block p-4 text-sm font-semibold text-kemi-ojo   hover:text-white hover:bg-kemi-ojo rounded"
-                                :class="isActive('/medical-ultrasound') ? 'text-kemi-ojo-2  bg-kemi-ojo font-bold' : ''"
+                                :class="isActive('/medical-ultrasound') ?
+                                    'text-white bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple font-bold' : ''"
                                 href="{{ route('medical') }}">Medical Ultrasound</a></li>
                         <li class="mb-1"><a
                                 class="block p-4 text-sm font-semibold text-kemi-ojo   hover:text-white hover:bg-kemi-ojo rounded"
-                                :class="isActive('/favour-store') ? 'text-kemi-ojo-2  bg-kemi-ojo font-bold' : ''"
+                                :class="isActive('/favour-store') ?
+                                    'text-white bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple font-bold' : ''"
                                 href="{{ route('favour') }}">Favour Store</a></li>
 
                         <li class="mb-1"><a
                                 class="block p-4 text-sm font-semibold text-kemi-ojo   hover:text-white hover:bg-kemi-ojo rounded"
-                                :class="isActive('/eko-ede-yoruba') ? 'text-kemi-ojo-2  bg-kemi-ojo font-bold' : ''"
+                                :class="isActive('/eko-ede-yoruba') ?
+                                    'text-white bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple font-bold' : ''"
                                 href="{{ route('ede-yoruba') }}"> Ẹ̀kọ́ Èdè Yorùbá</a></li>
+
                         <li class="mb-1"><a
-                                class="block p-4 text-sm font-semibold   hover:text-white hover:bg-kemi-ojo rounded"
-                                :class="isActive('/contact') ? 'text-kemi-ojo-2  bg-kemi-ojo font-bold' : ''"
-                                href="{{ route('contact') }}">Contact me</a></li>
+                                class="block p-4 text-sm font-semibold text-kemi-ojo   hover:text-white hover:bg-kemi-ojo rounded"
+                                :class="isActive('/contact') ?
+                                    'text-white bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple font-bold' : ''"
+                                href="{{ route('contact') }}">Contact us</a></li>
+
 
                     </ul>
                 </div>
                 <div class="mt-auto">
 
-                    <p class="my-4 text-xs text-center text-gray-400">
+                    <p class="my-4 text-xs text-center text-kemi-ojo">
                         <span>©
                             {{ date('Y') }}
                             All rights reserved.</span>
                     </p>
                     <div class="text-center">
                         <a class="inline-block px-1" href="#">
-                            <img src="{{ asset('./images/facebook.svg') }}" alt="">
+                            <img src="{{ asset('./images/facebook.svg') }}" alt="" draggable="false">
                         </a>
                         <a class="inline-block px-1" href="#">
-                            <img src="{{ asset('./images/twitter.svg') }}" alt="">
+                            <img src="{{ asset('./images/twitter.svg') }}" alt="" draggable="false">
                         </a>
                         <a class="inline-block px-1" href="#">
-                            <img src="{{ asset('./images/instagram.svg') }}" alt="">
+                            <img src="{{ asset('./images/instagram.svg') }}" alt="" draggable="false">
                         </a>
                     </div>
                 </div>

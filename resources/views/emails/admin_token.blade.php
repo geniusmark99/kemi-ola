@@ -12,8 +12,11 @@
     <div
         style="max-width: 28rem; margin: 0 auto; background-color: #ffffff; border-radius: 0.5rem; overflow: hidden; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); padding: 1.5rem;">
         <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
-            <img src="https://agenoresource.com/images/Logo.png" alt="Ageno Logo"
-                style="height: 60px; width: 60px; border-radius: 9999px; display: block; margin: 0 auto;">
+
+
+            <img src="https://kemi-olaojo.com/images/Protokos-logo.png" alt="Ageno Logo"
+                style="height: 60px; width: 60px; border-radius: 9999px; display: block; margin: 0 auto; 
+                object-fit: contain">
         </div>
 
         <h2 style="font-size: 1.25rem; font-weight: 600; color: #1f2937; text-align: center; margin-bottom: 1rem;">

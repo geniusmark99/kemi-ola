@@ -7,11 +7,11 @@
 
 
 
-    <div class="relative overflow-hidden lg:mt-[100px]">
-        <div class="flex justify-center items-center h-screen bg-white">
-            <div class="w-full px-4 py-6 lg:px-5 lg:py-8 lg:w-[500px] max-w-[500px]">
+    <div class="relative overflow-hidden lg:mt-[80px]">
+        <div class="flex justify-center items-center h-screen" style="background-image: url('/images/grainy-noise.svg');">
+            <div class="w-full px-4 py-6 lg:px-5 lg:py-8 lg:w-[500px] max-w-[500px] ">
                 <div
-                    class="flex w-full  border-kemi-ojo/50 p-5 lg:p-7 rounded-md shadow-md shadow-kemi-ojo/20 
+                    class="flex w-full  border-kemi-ojo/50 p-5 lg:p-7 bg-white rounded-md shadow-md shadow-kemi-ojo/20 
                      items-center px-3 lg:justify-start justify-center">
 
                     <div class=" w-full mx-auto">
@@ -20,7 +20,7 @@
                             Welcome to Protokos Medical</h3> --}}
                         <div class="text-xl md:text-2xl font-extrabold text-center">
                             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                                Welcome to Protokos Medical Ultrasound 
+                                Welcome to Protokos Medical Ultrasound
                             </span>
                         </div>
 
