@@ -47,7 +47,7 @@
 
 
         {{-- Hero section --}}
-        <section class="h-auto lg:h-[60vh] px-6 lg:px-20 bg-gray-100">
+        <section class="h-auto lg:h-[70vh] px-6 lg:px-20 bg-gray-100">
             <div class="w-full flex flex-col lg:flex-row lg:gap-x-10 py-10 gap-y-10">
                 <div class="w-full lg:w-4/12">
                     <div class="flex flex-col gap-y-6 w-full lg:max-w-lg items-center lg:items-start  justify-center ">
@@ -88,15 +88,13 @@
                         <h1 style="font-family: 'neueMachina-regular', sans-serif;"
                             class="text-2xl max-w-sm md:max-w-md lg:max-w-xl md:text-3xl lg:text-4xl text-center lg:text-left  lg:leading-14 kemi-ojo-text-color gradient-animation">
 
-
-                            Explore Our Modern
-                            Clothes, Mugs and Books
+                            There is Something for everyone
                         </h1>
 
                         <p class="max-w-sm md:max-w-md lg:max-w-x text-gray-600">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet quis reiciendis at officiis
-                            aspernatur. Aliquid, nobis animi. Ipsum,
-                            ducimus nobis eos provident!
+                            "I will look on you with favour and make you fruitful and increase your numbers, and I will keep
+                            my covenant with you."
+                            <b class="text-gray-800"> Leviticus 26:9</b>
                         </p>
 
                         <div class="flex  items-center justify-around lg:justify-start w-full md:max-w-md gap-x-5 ">
@@ -113,7 +111,7 @@
 
 
 
-                            <a href="#"
+                            <a href="{{ route('all-products') }}"
                                 class="magnetic-btn text-gray-800 hover:text-kemi-ojo underline flex items-center gap-x-3 text-base lg:text-xl px-3 py-2.5 lg:px-6 lg:py-3.5">
                                 View All Products
                             </a>
@@ -129,8 +127,9 @@
                     <div class="flex flex-col gap-y-5">
                         <div>
                             <div class="shadow-md rounded-2xl border p-4 max-w-md ">
-                                <img src="{{ asset('images/mug.jpg') }}" alt=""
-                                    class="rounded-2xl w-full h-[300px]">
+                                {{-- src="{{ asset('images/mug.jpg') }}"  --}}
+                                <img src="{{ asset('images/white-ceramic-mug-with-color-inside.jpg') }}"
+                                    alt="A white mug with color inside" class="rounded-2xl w-full h-[300px]">
                                 <div class="flex items-center justify-between mt-5">
                                     <div>
                                         <h2 class="text-2xl tracking-wider flex items-center gap-x-2">
@@ -142,15 +141,15 @@
                                             Mugs
 
                                         </h2>
-                                        <p class="tracking-wider text-gray-700">2,500 items</p>
                                     </div>
                                     <div
                                         class="rounded-full size-12 bg-kemi-ojo text-white flex justify-center items-center">
 
+
                                         <svg class="size-5" xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" fill="#FFFFF5">
                                             <path
-                                                d="M25.5 7 A 1.50015 1.50015 0 1 0 25.5 10L35.878906 10L7.4394531 38.439453 A 1.50015 1.50015 0 1 0 9.5605469 40.560547L38 12.121094L38 22.5 A 1.50015 1.50015 0 1 0 41 22.5L41 8.5 A 1.50015 1.50015 0 0 0 39.5 7L25.5 7 z"
+                                                d="M36 5.0097656C34.205301 5.0097656 32.410791 5.6901377 31.050781 7.0507812L8.9160156 29.183594C8.4960384 29.603571 8.1884588 30.12585 8.0253906 30.699219L5.0585938 41.087891 A 1.50015 1.50015 0 0 0 6.9121094 42.941406L17.302734 39.974609 A 1.50015 1.50015 0 0 0 17.304688 39.972656C17.874212 39.808939 18.39521 39.50518 18.816406 39.083984L40.949219 16.949219C43.670344 14.228094 43.670344 9.7719064 40.949219 7.0507812C39.589209 5.6901377 37.794699 5.0097656 36 5.0097656 z M 36 7.9921875C37.020801 7.9921875 38.040182 8.3855186 38.826172 9.171875 A 1.50015 1.50015 0 0 0 38.828125 9.171875C40.403 10.74675 40.403 13.25325 38.828125 14.828125L36.888672 16.767578L31.232422 11.111328L33.171875 9.171875C33.957865 8.3855186 34.979199 7.9921875 36 7.9921875 z M 29.111328 13.232422L34.767578 18.888672L16.693359 36.962891C16.634729 37.021121 16.560472 37.065723 16.476562 37.089844L8.6835938 39.316406L10.910156 31.521484 A 1.50015 1.50015 0 0 0 10.910156 31.519531C10.933086 31.438901 10.975086 31.366709 11.037109 31.304688L29.111328 13.232422 z"
                                                 fill="#FFFFF5" />
                                         </svg>
                                     </div>
@@ -179,19 +178,21 @@
                                             Clothes
 
                                         </h2>
-                                        <p class="tracking-wider text-gray-700">2,500 items</p>
+
                                     </div>
-                                    <div
+                                    <button
                                         class="rounded-full size-12 bg-kemi-ojo text-white flex justify-center items-center">
+
+
 
                                         <svg class="size-5" xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48"
                                             fill="#FFFFF5">
                                             <path
-                                                d="M25.5 7 A 1.50015 1.50015 0 1 0 25.5 10L35.878906 10L7.4394531 38.439453 A 1.50015 1.50015 0 1 0 9.5605469 40.560547L38 12.121094L38 22.5 A 1.50015 1.50015 0 1 0 41 22.5L41 8.5 A 1.50015 1.50015 0 0 0 39.5 7L25.5 7 z"
+                                                d="M36 5.0097656C34.205301 5.0097656 32.410791 5.6901377 31.050781 7.0507812L8.9160156 29.183594C8.4960384 29.603571 8.1884588 30.12585 8.0253906 30.699219L5.0585938 41.087891 A 1.50015 1.50015 0 0 0 6.9121094 42.941406L17.302734 39.974609 A 1.50015 1.50015 0 0 0 17.304688 39.972656C17.874212 39.808939 18.39521 39.50518 18.816406 39.083984L40.949219 16.949219C43.670344 14.228094 43.670344 9.7719064 40.949219 7.0507812C39.589209 5.6901377 37.794699 5.0097656 36 5.0097656 z M 36 7.9921875C37.020801 7.9921875 38.040182 8.3855186 38.826172 9.171875 A 1.50015 1.50015 0 0 0 38.828125 9.171875C40.403 10.74675 40.403 13.25325 38.828125 14.828125L36.888672 16.767578L31.232422 11.111328L33.171875 9.171875C33.957865 8.3855186 34.979199 7.9921875 36 7.9921875 z M 29.111328 13.232422L34.767578 18.888672L16.693359 36.962891C16.634729 37.021121 16.560472 37.065723 16.476562 37.089844L8.6835938 39.316406L10.910156 31.521484 A 1.50015 1.50015 0 0 0 10.910156 31.519531C10.933086 31.438901 10.975086 31.366709 11.037109 31.304688L29.111328 13.232422 z"
                                                 fill="#FFFFF5" />
                                         </svg>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -328,7 +329,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <div x-show="activeTab === 'tab1'" class="p-4 bg-gray-50 rounded">
+                    <div x-show="activeTab === 'tab4'" class="p-4 bg-gray-50 rounded">
                         <div class="flex justify-center item-center my-10">
                             <h1 class="text-xl md:text-2xl lg:text-3xl text-gray-700">All Products</h1>
                         </div>
@@ -381,31 +382,17 @@
                             </div>
                         </div>
                     </div>
-                    <div x-show="activeTab === 'tab4'" class="p-4 bg-gray-50 rounded">
+                    <div x-show="activeTab === 'tab1'" class="p-4 bg-gray-50 rounded">
 
                         <div class="flex justify-center item-center my-10">
                             <h1 class="text-xl md:text-2xl lg:text-3xl text-gray-700">Books</h1>
                         </div>
                         <div class="overflow-x-auto whitespace-nowrap p-4 scrollbar-hide">
-                            <div class="inline-flex space-x-10 lg:space-x-4">
-                                <x-cart-widget />
-                                <x-cart-widget />
-                                <x-cart-widget />
-                                <x-cart-widget />
-                                <x-cart-widget />
-                                <x-cart-widget />
-                                <x-cart-widget />
-                                <x-cart-widget />
-                            </div>
+                            <x-book-widget-list :books="$ingramSparkBooks" />
                         </div>
                     </div>
                 </div>
-                {{-- 
-            <div>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis id recusandae maxime accusantium nihil modi
-                cumque totam aperiam officiis tempore repellendus laborum animi excepturi alias illum eaque, quos impedit
-                consequuntur?
-            </div>  --}}
+
             </div>
 
 
@@ -413,11 +400,9 @@
 
         </section>
 
-        {{-- END OF PRODUCTS --}}
 
 
-        {{-- TESTIMONIAL --}}
-        <section class="flex flex-col gap-y-5 mt-10 ">
+        {{-- <section class="flex flex-col gap-y-5 mt-10 ">
 
             <div class="flex  items-center gap-x-2 justify-center">
                 <div class="w-6 h-0.5 bg-amber-500 "></div>
@@ -717,7 +702,7 @@
                 </div>
             </div>
 
-        </section>
+        </section> --}}
         {{-- END OF TESTIMONIAL --}}
 
 

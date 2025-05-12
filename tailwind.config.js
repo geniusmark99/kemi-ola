@@ -22,17 +22,12 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                // "kemi-ojo": "#42038F",
-                // "kemi-ojo": "#0284CF",
                 "kemi-ojo": "#225CFB",
                 "kemi-ojo-blue": "rgb(59, 130, 246)",
                 "kemi-ojo-purple": "rgb(79, 70, 229)",
                 "kemi-ojo-green": "rgb(34, 197, 94)",
                 "kemi-ojo-light": "#6F40AA",
                 "kemi-ojo-2": "rgb(245, 158, 11)",
-
-                // "kemi-ojo-2": "#E08300",
-                // "kemi-ojo-3": "#0284CF",
                 "protokos": "#E3742D",
                 "protokos-pub": "#F6BD00"
 

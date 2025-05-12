@@ -14,10 +14,54 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\CertificateMail;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserCourse;
+use App\Services\PrintfulService;
+use App\Mail\ContactMessageMail;
 
 
 class PageController extends Controller
 {
+
+
+    protected $printfulService;
+
+    public function __construct(PrintfulService $printfulService)
+    {
+        $this->printfulService = $printfulService;
+    }
+
+    public function getPoems()
+    {
+        $poems = [
+            ["title" => "The Sun", "content" => "The sun shines bright, giving us light."],
+            ["title" => "The Moon", "content" => "The moon glows softly, lighting the night."],
+            ["title" => "The Ocean", "content" => "Waves crash and dance, a timeless trance."],
+            ["title" => "The Steps", "content" => "Waves crash and dance, a timeless trance. Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance.Waves crash and dance, a timeless trance."],
+        ];
+
+        return response()->json($poems);
+    }
+
+
+    public function publisherSearch(Request $request)
+    {
+
+        $query = $request->input('query');
+        $data = [
+            ['id' => 1, 'name' => 'Apple'],
+            ['id' => 2, 'name' => 'Banana'],
+            ['id' => 3, 'name' => 'Orange'],
+            ['id' => 4, 'name' => 'Mango'],
+            ['id' => 5, 'name' => 'Pineapple'],
+            ['id' => 6, 'name' => 'Strawberry'],
+        ];
+
+        $filtered = array_filter($data, function ($item) use ($query) {
+            return stripos($item['name'], $query) !== false;
+        });
+
+        return response()->json(array_values($filtered));
+    }
+
 
     public function studentCourseSlug($slug)
     {
@@ -247,14 +291,76 @@ class PageController extends Controller
         return View('general.contact');
     }
 
+    public function contactSent(Request $request)
+    {
+        $validated = $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        Mail::to(config('mail.contact_address'))->send(new ContactMessageMail($validated));
+        session()->flash('success', 'Your message has been sent successfully.');
+        return redirect()->back();
+    }
+
     public function blog()
     {
         return View('general.blog');
     }
     public function protokos()
     {
-        return View('general.protokos');
+
+        $data = [
+            ['id' => 1, 'name' => 'Obsterics and Gynaecology Ultrasound'],
+            ['id' => 2, 'name' => '3rd Trimester Scan for the Ultrasound'],
+            ['id' => 3, 'name' => 'NT Scanning for the Beginner'],
+            ['id' => 4, 'name' => 'Ultrasound services in an Early Pregnancy'],
+            ['id' => 5, 'name' => 'Pineapple'],
+            ['id' => 6, 'name' => 'Strawberry'],
+        ];
+
+
+        $ingramSparkBooks = [
+
+
+            [
+                'id' => 8,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015063.jpg?viewkey=9f32010a5a18f9b46b104c2adf8b62ca1d7799b33d8762e0b261b252929ac060',
+                'title' => 'NT Scanning for the Beginner',
+                'link' => 'https://shop.ingramspark.com/b/084?params=sfNKYL9ugt6Lzt1Fi7X0UUiCvHvQJfpqnPgb4zYwthd',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+
+            [
+                'id' => 9,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015071.jpg?viewkey=037e9b66a5cfb9590d48955209dcce1d63af4f9097e4626934ed22ee8cede829',
+                'title' => 'Ultrasound Services in An Early Pregnancy and Acut ....',
+                'link' => 'https://shop.ingramspark.com/b/084?params=Ps22anVgXRnpSVcx3zDTwpkC2GUBbhuktkLXU5Y5Yv8',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 10,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/190801508X.jpg?viewkey=a97f90229362d7a0bb6a48fd9ba49c571caf600d6a000f0538a91e6dfde56f5d',
+                'title' => 'Ultrasound Services in An Early Pregnancy and Acut ....',
+                'link' => 'https://shop.ingramspark.com/b/084?params=GJjL4uBvIjUAJx6XAkNne92mauRHuGsmpHyERmez3kz',
+                'author' => 'Ola-Ojo, Oluwakemi, and Spiliopoulos, Dimitrios,',
+            ],
+
+
+        ];
+
+
+
+
+
+        return View('general.protokos', compact('data', 'ingramSparkBooks'));
     }
+
     public function medical()
     {
         return View('general.medical');
@@ -262,7 +368,178 @@ class PageController extends Controller
 
     public function favourStore()
     {
-        return View('general.favour-store');
+
+
+        $ingramSparkBooks = [
+            [
+                'id' => 0,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015098.jpg?viewkey=55894bc2f67648b5635696810bdecf073fa155db82a99f6cb00cfb9e44afa210',
+                'title' => 'FIGHT',
+                'link' => 'https://shop.ingramspark.com/b/084?params=RhndQPY15vL0ez11dNXTW0OXlF9GC5PsGrq9cno4xNO',
+                'author' => 'OJO, WILLIAM RUFUS, and OLADIPO, SUMBO, and OJO, OLUWAKEMI,',
+            ],
+
+            [
+                'id' => 1,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015047.jpg?viewkey=159bb237960d25bca4668c568a0abaf491cefdba9600019c4ffcadbe8c35cfb7',
+                'title' => ' ABC OF PEOPLE and THINGS IN THE BIBLE - Parents/Te ....',
+                'link' => 'https://shop.ingramspark.com/b/084?params=rDsdCogu4s9L5NrNoFgGRPG0VWzdiQOfYgYq7MxvnWI',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 2,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015055.jpg?viewkey=57719d3c6a058de97497f063caa0b9b71d388131e82587fb0d61d490b3df4731',
+                'title' => 'ABC of People and Things in the Bible-Childs Wor ....',
+                'link' => 'https://shop.ingramspark.com/b/084?params=k5udoBQj7Pn6icBoCh3EfrP6tNsBNiZXkfZOKrtp9Vt',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 3,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015039.jpg?viewkey=fd195906e2aa2df1d79837c6b042d99a631f39db8c7a8558ec28f64358e900b5',
+                'title' => 'ABC of People and Things in the Bible-Childs Wor ....',
+                'link' => 'https://shop.ingramspark.com/b/084?params=q6mwSBGSASf0EUXviYOgUjeiORtVK3RziCJJ14nyWgA',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 4,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015020.jpg?viewkey=b1f54a358bce8c0a74828562901864d20a921daa83487bb9b834535bb1245943',
+                'title' => 'ABC of People and Things in the Bible-Childs Wor ....',
+                'link' => 'https://shop.ingramspark.com/b/084?params=wHzAYGs77j8cwpORT3dnrjKOa70UhfK7V6XVwPrckpX',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 5,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/190801511X.jpg?viewkey=795800446a1e69089eb9837b7b103a609bb386c0b2fb894e34a243996c17b403',
+                'title' => 'The Enemy Within',
+                'link' => 'https://shop.ingramspark.com/b/084?params=HjnfXm9Ksdlxg4aBWsYeZXcLejvZPjiCav0eKAWesbA',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 6,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015128.jpg?viewkey=02713d9a99758995690e91cdca52845ee015ab8053b983ffb6706b00866bbd6e',
+                'title' => 'INSPIRATION FOR THE MAN OF VALOUR',
+                'link' => 'https://shop.ingramspark.com/b/084?params=Ox9WA3awkUVWkc0Al0FFLFwp5gg17jDu6CUsFloD57t',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 7,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015101.jpg?viewkey=3332fb590b702c6fbae578b23e16c5ed53c0674dbf742e47b3cc8d50a2a292e0',
+                'title' => 'TO THE GROOM WITH LOVE',
+                'link' => 'https://shop.ingramspark.com/b/084?params=EHMEWAREIRtXhlgR3irmiUGooAGeu2ikAKBiynGEUey',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 8,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015063.jpg?viewkey=9f32010a5a18f9b46b104c2adf8b62ca1d7799b33d8762e0b261b252929ac060',
+                'title' => 'NT Scanning for the Beginner',
+                'link' => 'https://shop.ingramspark.com/b/084?params=sfNKYL9ugt6Lzt1Fi7X0UUiCvHvQJfpqnPgb4zYwthd',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+
+            [
+                'id' => 9,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015071.jpg?viewkey=037e9b66a5cfb9590d48955209dcce1d63af4f9097e4626934ed22ee8cede829',
+                'title' => 'Ultrasound Services in An Early Pregnancy and Acut ....',
+                'link' => 'https://shop.ingramspark.com/b/084?params=Ps22anVgXRnpSVcx3zDTwpkC2GUBbhuktkLXU5Y5Yv8',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 10,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/190801508X.jpg?viewkey=a97f90229362d7a0bb6a48fd9ba49c571caf600d6a000f0538a91e6dfde56f5d',
+                'title' => 'Ultrasound Services in An Early Pregnancy and Acut ....',
+                'link' => 'https://shop.ingramspark.com/b/084?params=GJjL4uBvIjUAJx6XAkNne92mauRHuGsmpHyERmez3kz',
+                'author' => 'Ola-Ojo, Oluwakemi, and Spiliopoulos, Dimitrios,',
+            ],
+
+            [
+                'id' => 11,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015012.jpg?viewkey=e82c101810a0887c14f2134e664d464265befd0ec9eab565ab4bbcbd693e666a',
+                'title' => ' GOOD DADS, BAD DADS - WORKBOOK',
+                'link' => 'https://shop.ingramspark.com/b/084?params=QznpJoPX3b4Y1tRg59pXLXMhsGdaHQl64IzAic14PXi',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+            [
+                'id' => 12,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/0955789877.jpg?viewkey=f4a200deb2dd09382e92b756835fabf0362f052ddb7652ae36f25f660250499c',
+                'title' => 'Let"s Reason Together - Youth"s A-Z 9 (Book 1)',
+                'link' => 'https://shop.ingramspark.com/b/084?params=vAgMNv25rNCXBP0FzCbSpomVqKvve8bDT0gnKJPJf45',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+
+            [
+                'id' => 13,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/0955789893.jpg?viewkey=f51f5f01f5aa8dd310247d915976e64378f0c3033bf0df82a9d6d5dd8798d382',
+                'title' => 'Let"s Reason Together-Youth"s A-Z. (Book 2)',
+                'link' => 'https://shop.ingramspark.com/b/084?params=vAgMNv25rNCXBP0FzCbSpomVqKvve8bDT0gnKJPJf45',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+
+            [
+                'id' => 14,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/095578980X.jpg?viewkey=8362fba0081bc78235c00dd06dc67172944043d6580b3678a6717bd0631aa1db',
+                'title' => 'Refuge Under His Wings',
+                'link' => 'https://shop.ingramspark.com/b/084?params=UJengCup6rONPIxK7ZLqKwPFuFLLU4cz9LZjdOnrrZn',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 15,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/0955789869.jpg?viewkey=761f744597035347b4bc73cc2de47b799de3a685f80b1b090bc2b6434be7e915',
+                'title' => 'There is a Reward for Parenting',
+                'link' => 'https://shop.ingramspark.com/b/084?params=l4G2oFxwQ3mLeU3eGVMGfYZB0jhAhfUd1tshwlN1hL4',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 16,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/0955789850.jpg?viewkey=28d2ecfc4cefc5088bb742c158194f82884675b3e998a69f47f100641d811f8d',
+                'title' => 'Grace or Works?',
+                'link' => 'https://shop.ingramspark.com/b/084?params=ji0yZ8psCGNlV7Ybh7KcFltLWi60L2HY27jj7Ev2Nxh',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 17,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/0955789834.jpg?viewkey=775823d35e034e016ca383d24672d85a55511a641546705f484ca1c300a3b983',
+                'title' => 'Provocation, Prayer and Praise',
+                'link' => 'https://shop.ingramspark.com/b/084?params=I5m1lO6EnvSQKs3FNfcAhs1Z43UFy3YvxegRCKwbyzm',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+            [
+                'id' => 18,
+                'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/0955789818.jpg?viewkey=204dc8c1cb22e3d2c57757580bd8dd8871a4413ba8b9784deb0f65350b1b6d8f',
+                'title' => 'GOOD MUMS, BAD MUMS',
+                'link' => 'https://shop.ingramspark.com/b/084?params=I3E9M1qutTT0tdS4fBePjloLk54yn9oWj1YP7y679D3',
+                'author' => 'OLA-OJO, OLUWAKEMI O',
+            ],
+
+
+
+        ];
+
+        return View('general.favour-store', compact('ingramSparkBooks'));
+    }
+
+
+    public function allProducts()
+    {
+        $products = $this->printfulService->getSyncedProducts();
+        $products = $products['result'];
+        // $products = array_slice($products, 0, 30);
+        // return response()->json($products);
+        return view('general.all-products', compact('products'));
     }
 
     public function yorubaWeb()

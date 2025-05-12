@@ -15,6 +15,7 @@ return [
     */
 
     'default' => env('MAIL_MAILER', 'log'),
+    'contact_address' => env('MAIL_CONTACT_ADDRESS', 'markthavalor@gmail.com'),
 
     /*
     |--------------------------------------------------------------------------

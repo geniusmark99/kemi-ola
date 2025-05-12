@@ -11,7 +11,7 @@
                             <div class="lg:pt-20">
                                 <h1 style="font-family: 'neueMachina-regular', sans-serif;"
                                     class="text-xl mt-10 md:text-4xl lg:text-5xl p-0  mx-10 text-center lg:leading-14 uppercase max-w-[1200px] lg:max-w-[900px]  font-extrabold drop-shadow-md bg-clip-text text-transparent bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple">
-                                    An excellence author and publisher of world-class book
+                                    An excellent author and publisher of world-class book
                                 </h1>
 
                                 <div
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="relative bg-cover bg-center h-[50vh] md:h-[70vh] lg:h-[95vh] w-full lg:w-6/12"
-                            style="background-image: url('/images/slider-31.jpg');">
+                            style="background-image: url('/images/bg001.jpg');">
                             <div class="absolute inset-0 bg-gradient-to-b from-kemi-ojo/10 to-kemi-ojo-purple/10"></div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="relative bg-cover bg-center h-[50vh] md:h-[70vh] lg:h-[95vh] w-full lg:w-6/12"
-                            style="background-image: url('/images/bg001.jpg');">
+                            style="background-image: url('/images/slider-31.jpg');">
                             <div class="absolute inset-0 bg-gradient-to-b from-kemi-ojo/10 to-kemi-ojo-purple/10"></div>
 
                         </div>
@@ -117,8 +117,8 @@
 
                         </div>
 
-                        <div class="relative bg-cover bg-center h-[50vh] md:h-[70vh] lg:h-[95vh] w-full lg:w-6/12"
-                            style="background-image: url('/images/slide2.jpg');">
+                        <div class="relative bg-cover bg-no-repeat h-[50vh] md:h-[70vh] lg:h-[95vh] w-full lg:w-6/12"
+                            style="background-image: url('/images/kemi-olaojo.jpg');">
                             <div class="absolute inset-0 bg-gradient-to-b from-kemi-ojo/10 to-kemi-ojo-purple/10"></div>
 
                         </div>

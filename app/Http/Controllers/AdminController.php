@@ -16,7 +16,8 @@ use App\Models\Course;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-
+use Illuminate\Support\Facades\DB;
+use App\Services\DeviceService;
 
 class AdminController extends Controller
 {
@@ -69,6 +70,7 @@ class AdminController extends Controller
 
         if ($request->token == Session::get('admin_token')) {
             Session::forget('admin_token'); // Clear the token from session
+            app(DeviceService::class)->checkDevice($request);
             return redirect()->route('admin.dashboard'); // Redirect to admin dashboard
         }
 
@@ -82,8 +84,12 @@ class AdminController extends Controller
 
     public function dashboard(): View
     {
-        return view('admin.dashboard');
+        $users = User::all();
+        $courses = Course::all();
+        $courseQuestions = CBTQuestion::all();
+        return view('admin.dashboard', compact('users', 'courses', 'courseQuestions'));
     }
+
     public function blog(): View
     {
         return view('admin.blog');
@@ -109,7 +115,6 @@ class AdminController extends Controller
 
     public function  studentId($id)
     {
-        // dd($id);
         $user = User::where('id', $id)->firstOrFail();
         return view('admin.studentView', compact('user'));
     }
@@ -138,11 +143,14 @@ class AdminController extends Controller
             'course_price' => 'required|string',
         ]);
         if ($request->hasFile('course_thumbnail_url')) {
-            $courseThumbnail = Cloudinary::upload($request->file('course_thumbnail_url')->getRealPath())->getSecurePath();
+            // $courseThumbnail = Cloudinary::upload($request->file('course_thumbnail_url')->getRealPath())->getSecurePath();
+
+            $courseThumbnail = $request->file('course_thumbnail_url')->store('images', 'public');
             $validated['course_thumbnail_url']  =  $courseThumbnail;
         }
         if ($request->hasFile('course_video_url')) {
-            $courseVideo = Cloudinary::uploadVideo($request->file('course_video_url')->getRealPath())->getSecurePath();
+            // $courseVideo = Cloudinary::uploadVideo($request->file('course_video_url')->getRealPath())->getSecurePath();
+            $courseVideo = $request->file('course_video_url')->store('images', 'public');
             $validated['course_video_url'] =  $courseVideo;
         }
         Course::create($validated);
@@ -155,7 +163,39 @@ class AdminController extends Controller
     public function profile()
     {
         $user = Auth::guard('admin')->user();
-        return view('admin.profile', compact('user'));
+
+        // for admin session
+        $sessions = DB::table('sessions')
+            ->where('user_id')
+            ->orderByDesc('last_activity')
+            ->get()
+            ->map(function ($session) {
+                return [
+                    'id' => $session->id,
+                    'ip_address' => $session->ip_address,
+                    'user_agent' => $session->user_agent,
+                    'is_current_device' => $session->id === session()->getId(),
+                    'last_active' => \Carbon\Carbon::createFromTimestamp($session->last_activity)->diffForHumans(),
+                ];
+            });
+
+
+        // return view('admin.profile', compact('user', 'sessions'));
+        return view('admin.profile', [
+            'user' => $user,
+            'sessions' => $sessions,
+
+        ]);
+    }
+
+    public function destroySession($id)
+    {
+        DB::table('sessions')
+            ->where('id', $id)
+            ->where('user_id')
+            ->delete();
+
+        return back()->with('success', 'Session has been logged out.');
     }
 
 
@@ -288,29 +328,16 @@ class AdminController extends Controller
         if ($request->hasFile('option_d_image')) {
             $validatedData['option_d_image'] = Cloudinary::upload($request->file('option_d_image')->getRealPath())->getSecurePath();
         }
-
-
-        // $imagePath = null;
-
-        // if ($request->hasFile('question_image')) {
-        //     $imagePath = $request->file('question_image')->store('quiz_questions', 'public');
-
-        // }
-
-        // $question = CBTQuestion::findOrFail($id);
-        // $question->course_code = $request->input('course_code');
-        // $question->question = $request->input('question');
-        // $question->option_a = $request->input('option_a');
-        // $question->option_b = $request->input('option_b');
-        // $question->option_c = $request->input('option_c');
-        // $question->option_d = $request->input('option_d');
-        // $question->correct_answer = $request->input('correct_answer');
-        // $question->save();
-        // return redirect()->back()->with('success', 'Question updated successfully!');
-
-
     }
 
+
+    public function poemEdit()
+    {
+
+        $courses = Course::all();
+        $questions = CBTQuestion::all();
+        return view('admin.poem', compact('courses', 'questions'));
+    }
 
 
     public function settings(): View

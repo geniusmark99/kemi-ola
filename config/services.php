@@ -14,6 +14,17 @@ return [
     |
     */
 
+    'printful' => [
+        'api_key' => env('PRINTFUL_API_KEY'),
+        'base_url' => 'https://api.printful.com/',
+    ],
+
+    'lulu' => [
+        'client_id' => env('LULU_CLIENT_ID'),
+        'client_secret' => env('LULU_CLIENT_SECRET'),
+        'base_url' => env('LULU_BASE_URL'),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

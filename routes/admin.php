@@ -22,6 +22,7 @@ Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/courses', 'courses')->name('admin.courses');
         Route::get('/admin/profile', 'profile')->name('admin.profile');
         Route::get('/admin/favour-store', 'favourStore')->name('admin.favour.store');
+        Route::get('/admin/poem', 'poemEdit')->name('admin.poem');
         Route::get('/admin/protokos', 'protokos')->name('admin.protokos');
         Route::post('/admin/uploadcourse', 'uploadCourse')->name('admin.courses.upload');
         Route::get('/admin/protokos/{id}', 'protokosId')->name('admin.protokos.id');
@@ -33,8 +34,17 @@ Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/question/{id}/edit', 'editQuestion')->name('admin.questions.edit');
         Route::put('/admin/question/{id}', 'updateQuestion')->name('admin.questions.update');
         Route::post('/admin/store-questions', 'storeQuestions')->name('admin.storeQuestions');
+        Route::delete('/admin/sessions/{id}', 'destroySession')->name('admin.sessions.destroy');
     });
 });
+
+// Route::controller(AdminSessionController::class)->group(function () {
+//     Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
+//         Route::get('/profile/sessions', 'sessions')->name('admin.sessions');
+//         Route::delete('/profile/sessions/{id}', 'destroySession')->name('admin.sessions.destroy');
+//     });
+// });
+
 
 // Route::prefix('admin')->group(function () {
 //     Route::get('/login', [AdminController::class, 'login'])->name('admin.login');

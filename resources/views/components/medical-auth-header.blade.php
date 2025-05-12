@@ -1,7 +1,7 @@
 <div
     class="p-5 flex items-center w-full justify-between bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple lg:fixed top-0 z-50 border-b border-kemi-ojo">
-    <a href="/">
-        <img alt="logo" class="block h-10 rtl:scale-x-[-1]" src="{{ asset('/images/Protokos-logo.png') }}">
+    <a href="/medical-ultrasound">
+        <img alt="logo" class="block h-10 rounded-md" src="{{ asset('/images/Protokos-logo.png') }}">
     </a>
 
     <div class="flex items-center justify-between gap-x-4">
@@ -26,8 +26,8 @@
 
 
 
-        <a class="border text-white hover:text-kemi-ojo border-white  bg-kemi-ojo hover:bg-white 
-        py-1 lg:py-2 px-3 lg:px-6  text-xs sm:text-sm font-bold rounded-l-xl rounded-t-xl 
+        <a class="border text-kemi-ojo hover:text-white border-white  bg-white hover:bg-kemi-ojo-purple
+        py-1 lg:py-2 px-3 lg:px-6  text-xs sm:text-sm rounded-l-xl rounded-t-xl 
     transition duration-200"
             href="{{ route('contact') }}">Contact me
         </a>

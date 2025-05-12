@@ -19,11 +19,23 @@
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora similique, ullam temporibus, at est
                     iste non sed totam alias fugiat quae? Quidem possimus error consectetur eius fugiat atque velit est.
                 </p>
-                <div class="mt-5">
-                    <a href="{{ route('student.quiz') }}"
+                <div class="mt-5" x-data="{ quizPop: false }">
+                    {{-- <a href="{{ route('student.quiz') }}"
                         class="px-3 py-3 scale-95 hover:scale-100 transition-all bg-blue-500 text-white rounded-md">
                         Start Quiz
-                    </a>
+                    </a> --}}
+
+                    <div x-show="quizPop" x-transition:enter="transform transition-transform duration-300"
+                        x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
+                        x-transition:leave="transform transition-transform duration-300"
+                        x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
+                        LIST OF QUIZ OPTIONS
+                    </div>
+
+                    <button @click="quizPop = !quizPop"
+                        class="px-3 py-3 scale-95 hover:scale-100 transition-all bg-blue-500 text-white rounded-md">
+                        Start Quiz
+                    </button>
                 </div>
 
             </div>

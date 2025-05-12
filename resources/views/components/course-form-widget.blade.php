@@ -1,4 +1,4 @@
-<div class="mx-auto bg-white rounded-md border shadow-sm px-2 py-3">
+<div class="mx-auto bg-white rounded-md border shadow-sm px-2 py-3 container">
     <p class="text-base font-semibold md:text-2xl my-5 text-center">Upload a new lecture</p>
 
 
@@ -15,10 +15,10 @@
 
 
     <form action="{{ route('admin.courses.upload') }}" x-data="{ isUploading: false }" x-on:submit="isUploading = true"
-        method="POST" enctype="multipart/form-data" class="flex items-center justify-center  lg:mx-2 relative">
+        method="POST" enctype="multipart/form-data" class="flex items-center justify-center lg:mx-2 relative">
         @csrf
 
-        <div>
+        <div class="p-3 w-full">
             <div
                 class="flex flex-col lg:flex-row lg:items-center align-baseline lg:justify-between gap-y-10 lg:gap-x-5 w-full">
 
@@ -52,7 +52,7 @@
                     <label for="course_thumbnail_url" class="block font-medium text-sm">Lecture Thumbnail</label>
 
                     <!-- Thumbnail Drag-and-Drop -->
-                    <div class=" w-[300px] md:w-80 lg:w-64 xl:w-60 border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center"
+                    <div class="w-full md:w-80 lg:w-64 xl:w-60 border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center"
                         id="thumbnail-dropzone">
                         <input type="file" name="course_thumbnail_url" id="course_thumbnail_url" class="hidden"
                             accept="image/*">
@@ -83,7 +83,7 @@
                     <label for="course_video_url" class="block font-medium text-sm">Lecture Video</label>
 
 
-                    <div class=" w-[300px] md:w-80 lg:w-64 xl:w-60 border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center"
+                    <div class="w-full md:w-80 lg:w-64 xl:w-60 border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center"
                         id="video-dropzone">
                         <input type="file" name="course_video_url" id="course_video_url" class="hidden"
                             accept="video/*">

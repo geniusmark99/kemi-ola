@@ -11,6 +11,7 @@
         "php": "^8.2",
         "barryvdh/laravel-dompdf": "^3.1",
         "cloudinary-labs/cloudinary-laravel": "^2.2",
+        "guzzlehttp/guzzle": "^7.9",
         "laravel/breeze": "^2.2",
         "laravel/cashier": "*",
         "laravel/framework": "^11.9",

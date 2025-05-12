@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\LuluController;
+use App\Http\Controllers\PrintfulController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,15 +14,24 @@ Route::get('/', function () {
 
 
 
+Route::get('/lulu/products', [LuluController::class, 'listProducts']);
+Route::post('/lulu/order', [LuluController::class, 'placeOrder']);
+
+Route::get('/printful/products', [PrintfulController::class, 'listProducts']);
 
 
 Route::controller(PageController::class)->group(function () {
     Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
+    Route::post('/contact', 'contactSent')->name('contact-sent');
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/protokos-publishers', 'protokos')->name('protokos');
     Route::get('/protokos-publisher-bookstore', 'bookstore')->name('bookstore');
     Route::get('/medical-ultrasound', 'medical')->name('medical');
+    Route::get('/publisher-search', 'publisherSearch');
+    Route::get('/poems', 'getPoems');
+
+
     Route::middleware('auth')->group(function () {
 
         Route::get('/medical-ultrasound/dashboard', 'studentDashboard')->name('student.dashboard');
@@ -32,7 +43,6 @@ Route::controller(PageController::class)->group(function () {
         Route::get('/medical-ultrasound/result/{result_id}',  'cbtResult')->name('course.cbt.result');
         Route::get('/certificate/generate/{result_id}', 'generateCertificate')->name('certificate.generate');
         Route::get('/medical-ultrasound/certification', 'studentCertificate')->name('student.certificate');
-
         Route::get('/medical-ultrasound/cbt', 'studentCbt')->name('student.cbt');
         Route::get('/medical-ultrasound/cbt-exam', 'studentExam')->name('student.cbt-exam');
         Route::get('/medical-ultrasound/cbt-result', 'studentResult')->name('student.cbt-result');
@@ -41,16 +51,10 @@ Route::controller(PageController::class)->group(function () {
         Route::post('/medical-ultrasound/settings/password-update', 'passwordUpdate')->name('password.update');
         Route::post('/medical-ultrasound/settings/upload-picture', 'uploadPicture')->name('upload.picture');
         Route::get('/medical-ultrasound/cbt-quiz', 'studentQuiz')->name('student.quiz');
-
-        // Route::get('/test-email-view', function () {
-        //     $user = "Mark Okechukwu";
-        //     $course = 'ultrasound Courser';
-        //     $certificateUrl = env('APP_URL') . '/certificate/generate/1';
-        //     return new App\Mail\CertificateMail($user, $course, $certificateUrl);
-        // });
-
     });
+
     Route::get('/favour-store', 'favourStore')->name('favour');
+    Route::get('/favour-store/all-products', 'allProducts')->name('all-products');
     Route::get('/eko-ede-yoruba', 'yorubaWeb')->name('ede-yoruba');
 });
 

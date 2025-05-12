@@ -2,6 +2,12 @@
 @section('app-title', 'Kemi Olaojo')
 @section('app-style')
     <link rel="stylesheet" href="{{ asset('/styles/swiper-bundle.min.css') }}">
+    <style>
+        .active-poem {
+            color: white;
+            background-color: #3B82F6;
+        }
+    </style>
 @endsection
 @section('app-content')
     <div class="relative">
@@ -28,10 +34,7 @@
                         Hospital (UCH), Ibadan, Nigeria, where she trained as a radiographer, before earning a Master of
                         Science
                         degree from City University London.
-
                     </p>
-
-
 
                     <p class="mt-3 text-lg text-kemi-ojo leading-8">
                         With a passion for ultrasound education, she authored the widely acclaimed
@@ -126,7 +129,7 @@
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Card -->
                     <div
-                        class="magnetic-btn group flex flex-col h-full bg-white border overflow-hidden border-gray-200 shadow-sm rounded-xl">
+                        class=" group flex flex-col h-full bg-white border overflow-hidden border-gray-200 shadow-sm rounded-xl">
                         <div class="h-52 flex flex-col justify-center items-center  rounded-t-xl bg-cover bg-no-repeat"
                             style="background-image:  url('/images/protokos-publisher-logo.png')">
 
@@ -152,7 +155,7 @@
 
                     <!-- Card -->
                     <div
-                        class="magnetic-btn group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm rounded-xl">
+                        class=" group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm rounded-xl">
                         <div class="h-52 flex flex-col justify-center items-center bg-kemi-ojo rounded-t-xl bg-cover"
                             style="background-image:  url('/images/favour-online-logo-2.jpg')">
                         </div>
@@ -180,7 +183,7 @@
 
                     <!-- Card -->
                     <div
-                        class="magnetic-btn group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm rounded-xl">
+                        class=" group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm rounded-xl">
                         <div class="h-52 overflow-hidden flex flex-col justify-center items-center bg-kemi-ojo rounded-t-xl bg-cover bg-no-repeat"
                             style="background-image:  url('/images/Protokos-logo.png')">
 
@@ -207,8 +210,8 @@
 
 
                     <!-- Card -->
-                    <div
-                        class="magnetic-btn group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm rounded-xl">
+                    <div class=group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm
+                        rounded-xl">
                         <div class="h-52 flex flex-col overflow-hidden justify-center items-center rounded-t-xl bg-cover"
                             style="background-image:  url('/images/ede-yoruba.jpg')">
                         </div>
@@ -251,8 +254,7 @@
     <div class="">
 
         <!-- Hero -->
-        <div class="relative overflow-hidden">
-            <!-- Gradients -->
+        {{-- <div class="relative overflow-hidden">
             <div aria-hidden="true" class="flex absolute -top-96 start-1/2 transform -translate-x-1/2">
                 <div
                     class="bg-gradient-to-r from-rose-500/50 to-red-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] 
@@ -264,7 +266,6 @@
         ">
                 </div>
             </div>
-            <!-- End Gradients -->
 
             <div class="relative z-10">
                 <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
@@ -274,18 +275,13 @@
                             class="kemi-ojo-text-color inline-block text-sm font-medium kemi-ojo-text sm:text-2xl md:text-4xl lg:text-5xl">
                             What Happy Clients
                         </p>
-                        <!-- Title -->
                         <div data-scroll data-scroll-speed="2"class="kemi-ojo-text-color mt-5 max-w-2xl">
                             <h1 class="block font-semibold text-2xl md:text-3xl lg:text-4xl">
                                 are saying about Kemi
                                 Olaojo's books and platforms.
                             </h1>
                         </div>
-                        <!-- End Title -->
 
-
-
-                        <!-- Buttons -->
                         <div class="mt-8 gap-3 flex justify-center">
                             <a class="magnetic-btn py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border 
                         border-transparent bg-kemi-ojo text-white hover:bg-kemi-ojo focus:outline-none 
@@ -304,7 +300,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- End Hero -->
 
         <!-- Testimonials -->
@@ -445,74 +441,13 @@
             </div>
         </div>
         <!-- End Testimonials -->
+
+
+
     </div>
+    {{-- <x-poem /> --}}
 
 
-    {{-- <div class="max-w-6xl  mx-auto">
-        <div
-            class="bg-kemi-ojo relative rounded-xl p-5 sm:py-16 before:absolute before:top-0 before:start-0 
-            before:bg-[url('../../assets/svg/component/banner-bg-gray.svg')] 
-           
-            before:bg-no-repeat before:bg-top before:bg-contain before:w-2/3 before:h-full before:z-0">
-            <div class="max-w-xl relative z-10 text-center mx-auto">
-                <div class="mb-5">
-                    <h2 class="text-2xl font-bold md:text-3xl dark:text-white">Subscribe</h2>
-                    <p class="mt-3 text-purple-300 font-medium">Get all the latest Dr. Kemi Olaojo updates and newsletters.
-                    </p>
-                </div>
-
-                <div id="mc_embed_signup">
-                    <form
-                        action="https://praline.us10.list-manage.com/subscribe/post?u=eddd28397383718c2f15e15c2&amp;id=b97f8fe839"
-                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                        class="validate" target="_blank" novalidate="novalidate">
-                        <div id="mc_embed_signup_scroll">
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <input type="email" value="" name="EMAIL" id="mce-EMAIL"
-                                    class="block w-full text-gray-700 border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 
-                                    disabled:opacity-50 disabled:pointer-events-none "
-                                    placeholder="Email address">
-                                <input type="submit" name="subscribe"
-                                    class="py-3 cursor-pointer px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent 
-                                    bg-kemi-ojo-light hover:bg-white text-white hover:text-kemi-ojo transition-all hover:scale-95  focus:outline-none 
-                                    focus:bg-rose-700 disabled:opacity-50 disabled:pointer-events-none">
-                            </div>
-
-                            <div id="mce-responses" class="mt-3 text-gray-500 dark:text-neutral-400">
-                                <div class="response" id="mce-error-response" style="display:none"></div>
-                                <div class="response" id="mce-success-response" style="display:none"></div>
-                            </div>
-
-                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                    name="b_eddd28397383718c2f15e15c2_b97f8fe839" tabindex="-1" value=""></div>
-                        </div>
-                    </form>
-                </div>
-                <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-                <script type="text/javascript">
-                    (function($) {
-                        window.fnames = new Array();
-                        window.ftypes = new Array();
-                        fnames[0] = 'EMAIL';
-                        ftypes[0] = 'email';
-                        fnames[1] = 'FNAME';
-                        ftypes[1] = 'text';
-                        fnames[2] = 'LNAME';
-                        ftypes[2] = 'text';
-                        fnames[3] = 'ADDRESS';
-                        ftypes[3] = 'address';
-                        fnames[4] = 'PHONE';
-                        ftypes[4] = 'phone';
-                        fnames[5] = 'BIRTHDAY';
-                        ftypes[5] = 'birthday';
-                    }(jQuery));
-                    var $mcj = jQuery.noConflict(true);
-                </script>
-                <!--End mc_embed_signup-->
-            </div>
-        </div>
-    </div> --}}
 @endsection
 
 @section('app-script')
@@ -536,12 +471,49 @@
                     clickable: true,
                 },
                 slidesPerView: 1,
-                effect: 'cube', // You can change this to 'slide', 'cube', 'coverflow', etc.
+                effect: 'cube',
                 cubeEffect: {
-                    shadow: false, // Disables the shadow
-                    slideShadows: false, // Also removes slide shadows
+                    shadow: false,
+                    slideShadows: false,
                 },
             });
         });
     </script>
+
+    {{--
+    FOR POEM COMING BACK SOON
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sidebar = document.getElementById("sidebar");
+            const poemList = document.getElementById("poem-list");
+            const poemTitle = document.getElementById("poem-title");
+            const poemText = document.getElementById("poem-text");
+            fetch("http://127.0.0.1:8000/poems")
+                .then(response => response.json())
+                .then(poems => {
+                    poems.forEach((poem, index) => {
+                        const li = document.createElement("li");
+                        li.className =
+                            "text-white hover:bg-white hover:text-kemi-ojo px-3 py-2 cursor-pointer rounded-md";
+                        li.textContent = poem.title;
+                        if (index === 0) {
+                            li.classList.add("active-poem");
+                            poemTitle.textContent = poem.title;
+                            poemText.textContent = poem.content;
+                        }
+                        li.addEventListener("click", () => {
+
+                            document.querySelectorAll("#poem-list li").forEach(item => {
+                                item.classList.remove("active-poem");
+                            });
+                            li.classList.add("active-poem");
+                            poemTitle.textContent = poem.title;
+                            poemText.textContent = poem.content;
+                        });
+                        poemList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error("Error fetching poems:", error));
+        });
+    </script> --}}
 @endsection

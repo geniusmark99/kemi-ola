@@ -2,10 +2,10 @@
 @section('admin-content')
     <!-- Content -->
     <div class="w-full lg:ps-64">
-        <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+        <div class="p-4 sm:p-6 space-y-4 sm:space-y-6 ">
             <main class=" ">
 
-                <div class="flex flex-col items-center justify-center md:min-w-[500px] lgg:min-w-[800px] bg-white">
+                <div class="flex flex-col items-center justify-center md:min-w-[500px] lgg:min-w-[800px] bg-white py-10">
                     <div class="bg-white rounded-lg w-full max-w-lg p-6">
                         <h2 class="text-2xl font-semibold text-gray-600 text-center mb-4">Profile Settings</h2>
 
@@ -210,15 +210,123 @@
                                 </button>
                             </div>
                         </form>
+
                     </div>
 
 
+                    <div class="mt-8 px-4 container">
+                        <h1 class="my-4 font-semibold">Sessions</h1>
+                        <div class="grid grid-cols-1 gap-y-4 md:gap-x-4 lg:gap-x-4 md:grid-cols-2 lg:grid-cols-3">
+                            {{-- {{ $sessions }} --}}
+                            @foreach ($sessions as $session)
+                                <div class="border shadow-sm rounded-2xl p-3 ">
+                                    <div class="flex justify-between items-center">
+                                        <div class="border shadow-sm rounded-xl p-2">
+                                            <svg class="size-5 stroke-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path
+                                                    d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16">
+                                                </path>
+                                            </svg>
+                                        </div>
+
+                                        @if (!$session['is_current_device'])
+                                            <form method="POST"
+                                                action="{{ route('admin.sessions.destroy', $session['id']) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="bg-red-600 text-white text-sm px-3 py-1 rounded hover:bg-red-700">
+                                                    Logout
+                                                </button>
+                                            </form>
+                                        @endif
+
+                                        <form method="POST"
+                                            action="{{ route('admin.sessions.destroy', $session['id']) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="flex items-center cursor-pointer border rounded-xl shadow-sm p-2 gap-x-2 hover:bg-gray-200/50 bg-transparent transition-all">
+                                                <svg class="size-4 stroke-gray-600" xmlns="http://www.w3.org/2000/svg"
+                                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                                    <polyline points="16 17 21 12 16 7"></polyline>
+                                                    <line x1="21" x2="9" y1="12" y2="12">
+                                                    </line>
+                                                </svg>
+
+                                                Sign out
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="flex flex-col justify-between mt-4">
+                                        <div class="flex items-center justify-between bg-n">
+
+                                            <h2 class="font-semibold">Mac</h2>
+                                            <div class="bg-blue-300/50 text-blue-500  rounded-2xl text-center p-1 text-sm">
+                                                Current session
+                                            </div>
+                                        </div>
+                                        <ul class="flex flex-col space-y-2 list-none mt-4">
+                                            <li class="flex justify-between">
+                                                <span class="font-normal text-gray-500 uppercase text-sm">Location:</span>
+                                                <span class="text-sm">United Kingdom</span>
+                                            </li>
+
+                                            <li class="flex justify-between">
+                                                <span class="font-normal text-gray-500 uppercase text-sm">Device:</span>
+                                                <span class="text-sm">{{ $session['is_current_device'] }}</span>
+                                            </li>
 
 
+                                            <li class="flex justify-between">
+                                                <span class="font-normal text-gray-500 uppercase text-sm">IP
+                                                    Address:</span>
+                                                <span class="text-sm">{{ $session['ip_address'] }}</span>
+                                            </li>
 
+
+                                            <li class="flex justify-between">
+                                                <span class="font-normal text-gray-500 uppercase text-sm">Recent
+                                                    activity:</span>
+                                                <span class="text-sm">{{ $session['last_active'] }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div
+                                        class="w-full text-gray-800 font-medium cursor-pointer text-center flex items-center gap-x-2 mt-4 justify-center border shadow-sm py-2 px-3 rounded-xl hover:bg-gray-200/50 bg-transparent transition-all">
+                                        <svg class="size-4 stroke-gray-500" xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 16v-4"></path>
+                                            <path d="M12 8h.01"></path>
+                                        </svg>
+
+                                        Don't recognize something?
+                                    </div>
+
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
-            </main>
+
+
+
+
+
         </div>
+        </main>
+    </div>
     </div>
     <!-- End Content -->
     <!-- ========== END MAIN CONTENT ========== -->

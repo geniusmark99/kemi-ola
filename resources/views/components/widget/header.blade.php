@@ -121,10 +121,15 @@
     <template x-if="true">
         <div x-show="mobileMenu" @click.away="mobileMenu = false"
             :class="mobileMenu ? 'block lg:hidden' : 'hidden lg:hidden'"
+
             x-transition:enter="transform transition-transform duration-300"
-            x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
-            x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0"
-            x-transition:leave-end="-translate-x-full" class="fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
+            x-transition:enter-start="-translate-x-full" 
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transform transition-transform duration-300" 
+            x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="-translate-x-full" 
+            
+            class="fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
             <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
             <nav class="relative flex flex-col py-6 px-6 h-full w-full bg-white border-r overflow-y-auto bg-no-repeat"
                 style="background-image: url('/images/grainy-noise.svg');">
