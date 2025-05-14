@@ -1,5 +1,4 @@
 <div class="w-full mx-auto z-20">
-    <!-- Slider main container -->
     <div class="swiper">
         <div class="swiper-wrapper">
 
@@ -11,7 +10,7 @@
                             <div class="lg:pt-20">
                                 <h1 style="font-family: 'neueMachina-regular', sans-serif;"
                                     class="text-xl mt-10 md:text-4xl lg:text-5xl p-0  mx-10 text-center lg:leading-14 uppercase max-w-[1200px] lg:max-w-[900px]  font-extrabold drop-shadow-md bg-clip-text text-transparent bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple">
-                                    An excellent author and publisher of world-class book
+                                    An excellent author and publisher of world-class books
                                 </h1>
 
                                 <div
@@ -117,8 +116,10 @@
 
                         </div>
 
-                        <div class="relative bg-cover bg-no-repeat h-[50vh] md:h-[70vh] lg:h-[95vh] w-full lg:w-6/12"
-                            style="background-image: url('/images/kemi-olaojo.jpg');">
+                        <div class="relative bg-cover bg-[url('/images/kemi-olaojo.jpg')] bg-no-repeat h-[50vh] md:h-[70vh] lg:scale-90 lg:h-[100vh] w-full lg:w-6/12"
+                            style="background-image: url('/images/kemi-olaojo.jpg'); ">
+                            {{-- <img  src="/images/kemi-olaojo.jpg" alt="Kemi Olaojo"
+                                class="hidden lg:block absolute inset-0 w-full h-full object-contain scale-90" /> --}}
                             <div class="absolute inset-0 bg-gradient-to-b from-kemi-ojo/10 to-kemi-ojo-purple/10"></div>
 
                         </div>
@@ -129,6 +130,13 @@
             </div>
 
         </div>
+    </div>
+
+    <div style="--swiper-navigation-size:20px"
+        class="swiper-button-prev rounded-full bg-kemi-ojo size-10 p-4 lg:p-6 absolute top-1/2 left-4 transform -translate-y-1/2 !text-sm !text-white z-30">
+    </div>
+    <div style="--swiper-navigation-size:20px"
+        class="swiper-button-next rounded-full bg-kemi-ojo size-10 p-4 lg:p-6 absolute top-1/2 right-4 transform -translate-y-1/2 !text-sm !text-white z-30">
     </div>
     <div class="swiper-scrollbar"></div>
 </div>

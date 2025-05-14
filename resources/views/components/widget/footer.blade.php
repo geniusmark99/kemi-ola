@@ -62,6 +62,7 @@
                     <div class="mt-3 grid space-y-3 text-sm">
                         <p><span class=" text-gray-700 hover:text-kemi-ojo hover:underline focus:outline-none">
                                 20-22 Wenlock Road London
+                                N1 7GU
 
                             </span></p>
                     </div>

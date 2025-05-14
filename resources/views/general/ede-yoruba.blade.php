@@ -79,7 +79,7 @@
                             </div>
 
                             <div class="rounded-full size-20 md:size-24 lg:size-28 border bg-cover bg-no-repeat"
-                                style="background-image: url('/images/fair-smiling-man.jpg')"></div>
+                                style="background-image: url('/images/smiling-girl.jpg')"></div>
                         </div>
                         <div class="magnetic-btn flex flex-col gap-y-2 absolute -bottom-8 left-44 md:bottom-0">
                             <div
@@ -91,7 +91,7 @@
                             </div>
 
                             <div class="rounded-full size-20 lg:size-32 border bg-cover bg-no-repeat"
-                                style="background-image: url('/images/black-smiling-old-lady.jpg')"></div>
+                                style="background-image: url('/images/rodrigo-dos-reis.jpg')"></div>
                         </div>
                         <div
                             class="magnetic-btn flex flex-col gap-y-2 absolute top-0 right-[10px] lg:top-0 lg:right-[300px]">
@@ -104,7 +104,7 @@
                             </div>
 
                             <div class="rounded-full size-20 border bg-cover bg-no-repeat"
-                                style="background-image: url('/images/black-smiling-lady.jpg')"></div>
+                                style="background-image: url('/images/divine-effiong.jpg')"></div>
                         </div>
                     </div>
 
@@ -119,6 +119,39 @@
                 </div>
             </div>
         </section>
+
+        <div class="h-auto py-10 mx-5 md:mx-20 bg-white">
+            <h1 class="font-semibold text-xl md:text-2xl lg:text-3xl text-center py-10">Books by Olúwákẹ́mi O. Ọlá-Òjó</h1>
+            <h1 class="font-semibold text-kemi-ojo text-lg md:text-xl lg:text-2xl text-center py-10">Coming soon...</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-blue-500 h-[60vh] rounded-lg overflow-hidden">
+                    <img src="{{ asset('./images/awon-yoruba.jpeg') }}" alt="awon yoruba book" draggable="false">
+                </div>
+                <div class="bg-green-500 h-[60vh] rounded-lg overflow-hidden">
+                    <img src="{{ asset('./images/ayeye-ojo.jpeg') }}" alt="ayeye ojo book" draggable="false">
+
+                </div>
+                <div class="bg-yellow-500 h-[60vh] rounded-lg overflow-hidden">
+                    <img src="{{ asset('./images/aburo-mi.jpeg') }}" alt="" draggable="false">
+
+                </div>
+
+                <div class="bg-blue-500 h-[60vh] rounded-lg overflow-hidden">
+                    <img src="{{ asset('./images/iwe-onka-mi.jpeg') }}" alt="iwe onka mi book" draggable="false">
+
+                </div>
+                <div class="bg-green-500 h-[60vh] rounded-lg overflow-hidden">
+                    <img src="{{ asset('./images/ise-ti-awon.jpeg') }}" alt="ise ti awon book" draggable="false">
+
+                </div>
+                <div class="bg-yellow-500 h-[60vh] rounded-lg overflow-hidden">
+                    <img src="{{ asset('./images/awon-yoruba.jpeg') }}" alt="awon yoruba book" draggable="false">
+
+                </div>
+
+
+            </div>
+        </div>
 
 
         <div class="relative  h-[30vh] bg-cover bg-center flex justify-center items-center  px-4"
@@ -151,7 +184,7 @@
                         <div class="flex flex-col gap-y-5  items-center w-[100px] lg:w-[150px]">
 
                             <div class="border rounded-full  border-black shadow-sm h-[150px] pb-20 lg:h-[300px] w-[100px] lg:w-[150px] bg-cover bg-[50%] bg-no-repeat"
-                                style="background-image: url('./images/black-smiling-old-lady.jpg');">
+                                style="background-image: url('./images/divine-effiong.jpg');">
                             </div>
                             <div class="h-[50px] lg:h-[80px]">
                                 <div class="flex items-center gap-x-2 -space-x-7">
@@ -168,7 +201,7 @@
                         </div>
 
                         <div class="border rounded-full border-black shadow-sm h-[200px] lg:h-[350px] w-[100px] lg:w-[150px] bg-cover bg-[50%] bg-no-repeat"
-                            style="background-image: url('./images/black-smiling-lady.jpg');">
+                            style="background-image: url('./images/smiling-girl.jpg');">
                         </div>
                     </div>
                     <div class="flex"></div>
@@ -205,7 +238,7 @@
 
 
                     <div class="mt-10">
-                        <div class="flex">
+                        <div class="flex justify-center lg:justify-start">
                             <div class="flex bg-black items-center rounded-md mx-5 py-1 px-3 gap-x-1">
                                 <div>
                                     <svg class="size-8" xmlns="http://www.w3.org/2000/svg"

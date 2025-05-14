@@ -11,58 +11,14 @@
     <link rel="stylesheet" href="{{ asset('styles/fonts.css') }}">
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
-    <link rel="stylesheet" href="{{ asset('/build/assets/app-Cc6DndNb.css') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app-COKb7qCm.css') }}">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         html {
             scroll-behavior: smooth;
         }
 
-        .cursor-dot {
-            display: none;
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background-color: white;
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            mix-blend-mode: difference;
-        }
 
-        .cursor-circle {
-            display: none;
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: transform 0.15s ease-out;
-            z-index: 9998;
-            mix-blend-mode: difference;
-        }
-
-        @media screen and (min-width: 1300px) {
-
-            .cursor-dot,
-            .cursor-circle {
-                display: block;
-            }
-        }
-
-        .magnetic-btn {
-            cursor: pointer;
-            transition: transform 0.3s ease-out;
-        }
-
-        :root {
-            --orange: #ff7448;
-            --red: #ff4848;
-            --purple: #6248ff;
-        }
 
         .gradient-animation {
             background-image: linear-gradient(100deg, var(--orange), var(--red) 42%, var(--purple) 85%);

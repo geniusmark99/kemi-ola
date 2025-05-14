@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+
 @layer components {
     .ui-btn {
         @apply flex items-center justify-center rounded-md text-center font-medium text-white p-3

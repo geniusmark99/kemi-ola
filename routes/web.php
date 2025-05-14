@@ -23,6 +23,7 @@ Route::get('/printful/products', [PrintfulController::class, 'listProducts']);
 Route::controller(PageController::class)->group(function () {
     Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
+    Route::get('/protokos-publishers/review/{id}', 'bookReview')->name('book-review');
     Route::post('/contact', 'contactSent')->name('contact-sent');
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/protokos-publishers', 'protokos')->name('protokos');

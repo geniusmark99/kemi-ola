@@ -66,11 +66,11 @@
             </div>
 
             <!-- Right Image -->
-            <div class="px-6 py-10 h-screen lg:h-[70vh] md:px-12 lg:px-20 mt-8 lg:mt-0 flex justify-center lg:w-6/12 bg-cover bg-no-repeat"
-                style="background-image: url('images/pregnant-woman-receiving-ultrasound-scan-stomach.jpg')">
-                {{-- 
-                front-view-smiley-doctors-work.jpg
-                --}}
+            <div class="px-6 py-10 h-screen lg:h-[70vh] md:px-12 lg:px-20 mt-8 lg:mt-0 flex justify-center lg:w-6/12 bg-contain bg-no-repeat"
+                style="background-image: url('images/kemi-olaojo-protokos-medical.jpeg')">
+                {{-- kemi-olaojo-protokos-medical --}}
+                {{-- pregnant-woman-receiving-ultrasound-scan-stomach.jpg --}}
+
             </div>
         </section>
 

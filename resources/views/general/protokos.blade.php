@@ -166,20 +166,56 @@
                                 <img class="w-full rounded-2xl object-contain mb-4 md:mb-10"
                                     src="{{ $book['imgSrc'] }}" />
                                 <div class="flex flex-col">
-                                    <div class="text-gray-600 text-sm md:text-xl font-semibold">
+                                    <div class="text-zinc-600 text-sm md:text-xl font-semibold">
                                         {{ $book['title'] }}
                                     </div>
                                     <div class="text-gray-600">
-                                        <span>Authors:</span>
+                                        <span class="font-semibold md:text-2xl">Authors:</span>
                                         <div class="">
                                             {{ $book['author'] }}
                                         </div>
                                     </div>
-                                    <div>
-                                        <a class="w-full bg-kemi-ojo hover:bg-blue-700 text-white block text-center p-2 md:p-3 rounded-xl"
-                                            href="{{ $book['link'] }}" target="_blank">Buy
-                                            Now</a>
-                                    </div>
+                                    @if ($book['coming_soon'])
+                                        <div class=" flex flex-col gap-y-2 md:flex-row items-center gap-x-3 mt-10">
+                                            <a class="w-full bg-red-500 whitespace-nowrap hover:bg-red-600 text-white block text-center p-2 md:p-3 rounded-xl"
+                                                href="#" target="_blank">Coming Soon...</a>
+
+                                            <a class="text-sm group justify-center md:text-base w-full bg-kemi-ojo hover:bg-blue-700 text-white flex items-center gap-x-2 text-center p-2 md:p-3 rounded-xl"
+                                                href="{{ route('book-review', $book['id']) }}">
+                                                <svg class="size-5 group-hover:scale-[1.5] group-hover:-rotate-45 transition-all fill-white"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M24 4C12.972066 4 4 12.972074 4 24C4 35.027926 12.972066 44 24 44C35.027934 44 44 35.027926 44 24C44 12.972074 35.027934 4 24 4 z M 24 7C33.406615 7 41 14.593391 41 24C41 33.406609 33.406615 41 24 41C14.593385 41 7 33.406609 7 24C7 14.593391 14.593385 7 24 7 z M 25.548828 12C24.639828 12 24.421922 12.821297 24.169922 13.779297C24.092922 14.078297 24.050859 14.241391 24.005859 14.400391C23.894859 14.795391 23.701734 15.463297 23.427734 16.404297C23.406734 16.479297 23.375031 16.549234 23.332031 16.615234L20.205078 21.505859C19.409078 22.751859 18.210078 23.728813 16.830078 24.257812L16.314453 24.455078C15.200453 24.881078 14.55525 26.041891 14.78125 27.212891L15.222656 29.488281C15.443656 30.632281 16.320125 31.551078 17.453125 31.830078L25.769531 33.867188C26.136531 33.956188 26.503234 34 26.865234 34C28.934234 34 30.829328 32.598719 31.361328 30.511719L32.904297 24.462891C33.103297 23.685891 32.988078 22.879406 32.580078 22.191406C32.171078 21.502406 31.518187 21.014406 30.742188 20.816406C30.500187 20.754406 30.251953 20.722656 30.001953 20.722656L27.269531 20.722656C27.949531 18.622656 28.28125 17.086203 28.28125 16.033203C28.28125 13.057203 26.808828 12 25.548828 12 z" />
+                                                </svg>
+                                                Review</a>
+                                        </div>
+                                    @else
+                                        <div
+                                            class="justify-center flex flex-col gap-y-2 md:flex-row items-center gap-x-3 mt-10">
+                                            <a class="text-sm group justify-center md:text-base w-full bg-amber-500 whitespace-nowrap hover:bg-yellow -500 text-white flex items-center gap-x-2 text-center p-2 md:p-3 rounded-xl"
+                                                href="{{ $book['link'] }}">
+                                                <svg class="size-5 group-hover:scale-[1.5] transition-all fill-white"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M3.5 6 A 1.50015 1.50015 0 1 0 3.5 9L6.2558594 9C6.9837923 9 7.5905865 9.5029243 7.7285156 10.21875L8.0273438 11.78125L11.251953 28.716797C11.835068 31.772321 14.527135 34 17.638672 34L36.361328 34C39.472865 34 42.166064 31.773177 42.748047 28.716797L45.972656 11.78125 A 1.50015 1.50015 0 0 0 44.5 10L32 10L32 13L42.6875 13L39.800781 28.15625C39.484764 29.81587 38.051791 31 36.361328 31L17.638672 31C15.948808 31 14.516781 29.8158 14.199219 28.15625L14.199219 28.154297L11.3125 13L23 13L23 10L10.740234 10L10.675781 9.6582031C10.272657 7.5455321 8.4069705 6 6.2558594 6L3.5 6 z M 27.476562 6.9785156 A 1.50015 1.50015 0 0 0 26 8.5L26 21.878906L23.560547 19.439453 A 1.50015 1.50015 0 1 0 21.439453 21.560547L26.439453 26.560547 A 1.50015 1.50015 0 0 0 28.560547 26.560547L33.560547 21.560547 A 1.50015 1.50015 0 1 0 31.439453 19.439453L29 21.878906L29 8.5 A 1.50015 1.50015 0 0 0 27.476562 6.9785156 z M 20 36 A 3 3 0 0 0 20 42 A 3 3 0 0 0 20 36 z M 34 36 A 3 3 0 0 0 34 42 A 3 3 0 0 0 34 36 z" />
+                                                </svg>
+                                                Buy
+                                                Now</a>
+
+                                            <a class="text-sm group justify-center md:text-base w-full bg-kemi-ojo hover:bg-blue-700 text-white flex items-center gap-x-2 text-center p-2 md:p-3 rounded-xl"
+                                                href="{{ route('book-review', $book['id']) }}">
+                                                <svg class="size-5 group-hover:scale-[1.5] group-hover:-rotate-45 transition-all fill-white"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+                                                    <path
+                                                        d="M24 4C12.972066 4 4 12.972074 4 24C4 35.027926 12.972066 44 24 44C35.027934 44 44 35.027926 44 24C44 12.972074 35.027934 4 24 4 z M 24 7C33.406615 7 41 14.593391 41 24C41 33.406609 33.406615 41 24 41C14.593385 41 7 33.406609 7 24C7 14.593391 14.593385 7 24 7 z M 25.548828 12C24.639828 12 24.421922 12.821297 24.169922 13.779297C24.092922 14.078297 24.050859 14.241391 24.005859 14.400391C23.894859 14.795391 23.701734 15.463297 23.427734 16.404297C23.406734 16.479297 23.375031 16.549234 23.332031 16.615234L20.205078 21.505859C19.409078 22.751859 18.210078 23.728813 16.830078 24.257812L16.314453 24.455078C15.200453 24.881078 14.55525 26.041891 14.78125 27.212891L15.222656 29.488281C15.443656 30.632281 16.320125 31.551078 17.453125 31.830078L25.769531 33.867188C26.136531 33.956188 26.503234 34 26.865234 34C28.934234 34 30.829328 32.598719 31.361328 30.511719L32.904297 24.462891C33.103297 23.685891 32.988078 22.879406 32.580078 22.191406C32.171078 21.502406 31.518187 21.014406 30.742188 20.816406C30.500187 20.754406 30.251953 20.722656 30.001953 20.722656L27.269531 20.722656C27.949531 18.622656 28.28125 17.086203 28.28125 16.033203C28.28125 13.057203 26.808828 12 25.548828 12 z" />
+                                                </svg>
+                                                Review</a>
+                                        </div>
+                                    @endif
+
                                 </div>
                             </div>
                         @endforeach
@@ -215,7 +251,7 @@
 
             <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 style="font-family: 'neueMachina-light', sans-serif;"
-                    class="text-3xl md:text-4xl lg:text-7xl text-center lg:leading-14 uppercase font-extrabold drop-shadow-md bg-clip-text text-transparent bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple">
+                    class="text-3xl md:text-4xl lg:text-7xl text-center lg:leading-14 uppercase font-extrabold drop-shadow-md bg-clip-text text-black">
                     About Protokos Publishers
                 </h1>
 
@@ -224,58 +260,56 @@
                     class="flex flex-col w-full lg:flex-row gap-y-10 lg:gap-y-0 justify-center items-start lg:gap-x-20 mt-10">
                     <div class="w-full lg:w-6/12 flex flex-col gap-y-5">
 
-                        <p class="mt-3 text-lg text-kemi-ojo leading-8">
-                            When I was a student trying to study medical ultrasound, a classmate invited me for a
-                            weekend but said I must bring my ultrasound books. Instead of carrying the heavy
-                            ultrasound books on the trip, I wrote less than thirty questions which we worked
-                            through, but couldn&apos;t finish the entire weekend! There were no revision books available
-                            then.
+                        <p class="mt-3 text-lg text-black leading-8">
+                            Protokos Publishers is a purpose-driven publishing company dedicated to producing high-quality
+                            books that educate, inspire, and empower readers of all ages.
                         </p>
 
 
 
-                        <p class="mt-3 text-lg text-kemi-ojo leading-8">
-                            After qualifying as a sonographer, I couldn&apos;t get a job so I started writing more
-                            questions for myself and answering them. This later became the skeleton for
+                        <p class="mt-3 text-lg text-black leading-8">
+                            We publish in both English and Yorùbá, across a range of genres, including:
 
-                            <b class="italic">
-                                &apos;Obstetric
-                                and Gynaecological Ultrasound: A Self – Assessment Guide&apos;. ISBN 978-0443064623.
-                            </b>
-                            You may
-                            check the “Book Review” button below to read The Obstetrician & Gynaecologist
-                            www.rcog.org.uk reviews. This book has helped many to understand obstetrics and
-                            Gynaecology Ultrasound and pass their post graduate training examinations, be it as a
-                            Sonographer or as a Clinical Fellow in Obs. & Gynae.
+                        <div>
+                            - Medical and professional books – especially in ultrasound and healthcare education
+                            - Children&apos;s books – engaging, value-based stories for all age groups
+                            - Christian literature – for families, couples, young adults, newlyweds, and those preparing for
+                            marriage
+                            - Motivational and inspirational titles – that uplift, guide, and strengthen readers through
+                            life&apos;s challenges
+
+                        </div>
                         </p>
 
-                        <p class="mt-3 text-lg text-kemi-ojo leading-8">
-                            The other ultrasound books were written when I observed that ultrasound students and
-                            qualified colleagues were struggling in their practice. Each of the ultrasound books
-                            offer detailed guidance on how trainee or qualified colleagues can enhance their
-                            practice and offer the best services to the patients. Reviews are available on Amazon.
-                            I have been actively involved in training professional colleagues since 2005. The
-                            affordable Ultrasound books and courses are aimed at structured learning at the
-                            convenience and pace of the trainee or qualified colleagues.
+                        <p class="mt-3 text-lg text-black leading-8">
+                            In early 2025, Protokos Publishers marked 21 years of literary excellence. We are deeply
+                            grateful to everyone who has supported our journey — our readers, authors, professional
+                            partners, and associates.
                         </p>
 
 
 
 
-                        <p class="mt-3 text-lg text-kemi-ojo leading-8">
-                            Beyond medical imaging, she is a prolific author across multiple genres, known for her simple
-                            yet
-                            profound writing style. Her works are engaging, practical, and deeply inspiring, reflecting her
-                            passion
-                            for impacting lives through knowledge and wisdom.
-                            Explore her books and resources to learn, grow, and be inspired!
+                        <p class="mt-3 text-lg text-black leading-8">
+                            At Protokos, we believe publishing is more than printing pages — it’s about impact. That’s why
+                            we also offer mentorship and consultancy for new and aspiring authors — helping them develop
+                            their voice, refine their message, and confidently bring their work to life.
+                        </p>
+
+                        <p class="mt-3 text-lg text-black leading-8">
+                            You can find our professional and medical books right here on the Protokos Publishers platform,
+                            while other titles — including Christian literature, motivational works, and children’s books —
+                            are available at Favour Online: favouronline.kemiolaojo.com
+
+                            Protokos Publishers — 21 years of publishing with purpose, and still going strong.
+
                         </p>
 
 
 
 
                     </div>
-                    <div class="hidden lg:block lg:border-l border-kemi-ojo w-[1px] bg-kemi-ojo h-screen"></div>
+                    <div class="hidden lg:block lg:border-l border-black w-[1px] bg-kemi-ojo h-screen"></div>
 
                     <div class="lg:col-span-4 w-full flex justify-center lg:w-6/12">
                         <img class="w-full object-contain" src="{{ asset('/images/protokos-21-years.jpeg') }}"
@@ -283,6 +317,101 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+                <h1 style="font-family: 'neueMachina-light', sans-serif;"
+                    class="text-3xl md:text-4xl lg:text-5xl text-center lg:leading-14 uppercase font-extrabold drop-shadow-md bg-clip-text text-black">
+                    Publishing With Purpose: The Protokos Journey
+                </h1>
+                <p class="italic text-blue-600 mt-2">
+                    by Olúwákẹ́mi Olá-Òjó
+                </p>
+
+
+                <div
+                    class="flex flex-col-reverse w-full lg:flex-row gap-y-10 lg:gap-y-0 justify-center items-start lg:gap-x-20 mt-10">
+                    <div class="w-full lg:w-6/12 flex flex-col gap-y-5">
+                        <p class="mt-3 text-lg text-black leading-8">
+                            I never set out to write professional books. I was a poet — I loved crafting verses and writing
+                            words that inspired. My notebooks were filled with verses that spoke from the heart and words
+                            meant to uplift.
+                        </p>
+
+
+
+                        <p class="mt-3 text-lg text-black leading-8">
+                            But my journey into professional publishing began unexpectedly.
+
+                        <div>
+                            While studying medical ultrasound, a classmate invited me for a weekend revision session. She
+                            asked me to bring all my ultrasound textbooks. I didn’t want to carry the heavy books, so I
+                            wrote down less than thirty key questions for us to work through instead.
+                        </div>
+                        </p>
+
+                        <p class="mt-3 text-lg text-black leading-8">
+                            To my surprise, we didn’t even finish answering them all. That experience opened my eyes:
+                            students and professionals alike needed simpler, clearer resources for revision — especially in
+                            ultrasound.
+                        </p>
+
+
+
+
+                        <p class="mt-3 text-lg text-black leading-8">
+                            Later, after qualifying as a sonographer and still waiting for work opportunities, I continued
+                            writing — turning those handwritten questions into a structured guide. That eventually became my
+                            first professional book:
+                        </p>
+
+                        <p class="mt-3 text-lg text-black leading-8">
+                            Obstetric and Gynaecological Ultrasound: A Self–Assessment Guide
+                            ISBN: 978-0443064623, Published by Churchill Livingstone, Publishers
+
+                            It was later reviewed by The Obstetrician & Gynaecologist journal and has helped many
+                            sonographers and doctors prepare for their exams with clarity and confidence.
+                        </p>
+
+                        <p class="mt-3 text-lg text-black leading-8">
+                            After publishing my first book, I felt called to begin writing Christian literature — combining
+                            practical insights, and encouragement for individuals, couples, families, and youth. This
+                            spiritual shift led me to establish Protokos Publishers.
+                        </p>
+
+                        <p class="mt-3 text-lg text-black leading-8">
+                            What started as a platform for devotional and inspirational books later grew to include my own
+                            professional ultrasound titles — and eventually expanded into publishing for other authors too.
+
+
+                            Now, more than 21 years later, Protokos Publishers continues to stand on a firm foundation of
+                            purpose, integrity, and literary excellence — publishing books that build lives in both English
+                            and Yorùbá.
+                        </p>
+
+
+                        <p class="mt-3 text-lg text-black leading-8">
+                            Whether through clinical guidance, Christian encouragement, or children’s stories that speak to
+                            young hearts, my mission remains the same:
+
+                            “To write and publish with purpose — to educate, uplift, and inspire.”
+
+                        </p>
+
+
+
+                    </div>
+                    <div class="hidden lg:block lg:border-l border-black w-[1px] bg-kemi-ojo h-screen"></div>
+
+                    <div class="lg:col-span-4 w-full flex justify-center lg:w-6/12">
+                        <img class="w-full object-contain" src="{{ asset('/images/protokos-21-years.jpeg') }}"
+                            alt="Hero Image">
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
         {{-- End of Section --}}
 

@@ -1,4 +1,4 @@
-<section>
+<section class="w-full px-10">
     <header x-data="{
         lastScroll: 0,
         isVisible: true,
@@ -9,9 +9,9 @@
             this.lastScroll = currentScroll;
         }
     }" x-init="window.addEventListener('scroll', handleScroll)" :class="isVisible ? 'translate-y-0' : '-translate-y-full'"
-        class="fixed top-0 left-0 w-full bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out">
+        class="fixed top-0 left-0 w-full shadow-lg z-50 transition-transform duration-300 ease-in-out">
         <nav
-            class="relative px-6 py-3 lg:py-5 flex justify-between items-center header-pattern bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple  border-b border-white">
+            class="relative w-full mx-auto px-6 py-3 lg:py-5 flex justify-between items-center header-pattern bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple  border-b border-white">
 
             @if (Route::is('home'))
                 <a class="text-3xl font-bold leading-none block" href="/">
@@ -30,6 +30,11 @@
             @elseif(Route::is('medical'))
                 <a class="text-3xl font-bold leading-none block" href="/">
                     <img class="h-12 rounded-xl" src="{{ asset('/images/Protokos-logo.png') }}" alt=""
+                        width="auto">
+                </a>
+            @elseif(Route::is('ede-yoruba'))
+                <a class="text-3xl font-bold leading-none block" href="/">
+                    <img class="h-12 rounded-xl" src="{{ asset('/images/ile-eko-logo.jpeg') }}" alt=""
                         width="auto">
                 </a>
             @else
@@ -108,7 +113,7 @@
                     class="hidden lg:inline-block  border border-transparent hover:bg-kemi-ojo 
                     hover:text-white py-2 px-6  text-sm text-kemi-ojo font-bold rounded-l-xl rounded-t-xl 
                     transition duration-200"
-                    href="{{ route('contact') }}">Contact me
+                    href="{{ route('contact') }}">Contact us
                 </a>
             </div>
 
@@ -121,15 +126,10 @@
     <template x-if="true">
         <div x-show="mobileMenu" @click.away="mobileMenu = false"
             :class="mobileMenu ? 'block lg:hidden' : 'hidden lg:hidden'"
-
             x-transition:enter="transform transition-transform duration-300"
-            x-transition:enter-start="-translate-x-full" 
-            x-transition:enter-end="translate-x-0"
-            x-transition:leave="transform transition-transform duration-300" 
-            x-transition:leave-start="translate-x-0"
-            x-transition:leave-end="-translate-x-full" 
-            
-            class="fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
+            x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
+            x-transition:leave="transform transition-transform duration-300" x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="-translate-x-full" class="fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
             <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
             <nav class="relative flex flex-col py-6 px-6 h-full w-full bg-white border-r overflow-y-auto bg-no-repeat"
                 style="background-image: url('/images/grainy-noise.svg');">

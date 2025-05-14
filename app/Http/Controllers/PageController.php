@@ -291,6 +291,9 @@ class PageController extends Controller
         return View('general.contact');
     }
 
+
+
+
     public function contactSent(Request $request)
     {
         $validated = $request->validate([
@@ -327,28 +330,50 @@ class PageController extends Controller
 
 
             [
-                'id' => 8,
+                'id' => 1,
                 'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015063.jpg?viewkey=9f32010a5a18f9b46b104c2adf8b62ca1d7799b33d8762e0b261b252929ac060',
                 'title' => 'NT Scanning for the Beginner',
                 'link' => 'https://shop.ingramspark.com/b/084?params=sfNKYL9ugt6Lzt1Fi7X0UUiCvHvQJfpqnPgb4zYwthd',
                 'author' => 'OLA-OJO, OLUWAKEMI O',
+                'coming_soon' => false,
+
             ],
 
 
             [
-                'id' => 9,
+                'id' => 2,
                 'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015071.jpg?viewkey=037e9b66a5cfb9590d48955209dcce1d63af4f9097e4626934ed22ee8cede829',
-                'title' => 'Ultrasound Services in An Early Pregnancy and Acut ....',
+                'title' => 'Ultrasound Services in An Early Pregnancy and Acute Gynaecological Unit Book 1',
                 'link' => 'https://shop.ingramspark.com/b/084?params=Ps22anVgXRnpSVcx3zDTwpkC2GUBbhuktkLXU5Y5Yv8',
                 'author' => 'OLA-OJO, OLUWAKEMI O',
+                'coming_soon' => false,
             ],
 
             [
-                'id' => 10,
+                'id' => 3,
                 'imgSrc' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/190801508X.jpg?viewkey=a97f90229362d7a0bb6a48fd9ba49c571caf600d6a000f0538a91e6dfde56f5d',
                 'title' => 'Ultrasound Services in An Early Pregnancy and Acut ....',
                 'link' => 'https://shop.ingramspark.com/b/084?params=GJjL4uBvIjUAJx6XAkNne92mauRHuGsmpHyERmez3kz',
                 'author' => 'Ola-Ojo, Oluwakemi, and Spiliopoulos, Dimitrios,',
+                'coming_soon' => false,
+            ],
+
+            [
+                'id' => 4,
+                'imgSrc' => './images/Anomaly-Scan-Cover.jpeg',
+                'title' => 'Anamaly Scan for the Ultrasonographer',
+                'link' => 'https://shop.ingramspark.com/b/084?params=GJjL4uBvIjUAJx6XAkNne92mauRHuGsmpHyERmez3kz',
+                'author' => 'Ola-Ojo, Oluwakemi, Edited by Spiliopoulos, Dimitrios,',
+                'coming_soon' => true,
+            ],
+
+            [
+                'id' => 5,
+                'imgSrc' => './images/Trisemester-Scan-Cover.jpeg',
+                'title' => 'Trisemester Scan for the Ultrasonographer',
+                'link' => 'https://shop.ingramspark.com/b/084?params=GJjL4uBvIjUAJx6XAkNne92mauRHuGsmpHyERmez3kz',
+                'author' => 'Ola-Ojo, Oluwakemi, Edited by Spiliopoulos, Dimitrios,',
+                'coming_soon' => true,
             ],
 
 
@@ -359,6 +384,131 @@ class PageController extends Controller
 
 
         return View('general.protokos', compact('data', 'ingramSparkBooks'));
+    }
+
+
+    public function bookReview($id)
+    {
+
+        $ingramSparkBooks = [
+            [
+                "id" => 1,
+                "title" => "NT Scanning for the Beginner",
+                "author" => "OLA-OJO, OLUWAKEMI O",
+                'book_cover' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015063.jpg?viewkey=9f32010a5a18f9b46b104c2adf8b62ca1d7799b33d8762e0b261b252929ac060',
+                'link' => 'https://shop.ingramspark.com/b/084?params=sfNKYL9ugt6Lzt1Fi7X0UUiCvHvQJfpqnPgb4zYwthd',
+                'coming_soon' => false,
+                "review" => " <p>
+                    First impressions are that this is a richly illustrated book throughout and aimed as described at the
+                    beginner new to nuchal translucency screening. It assumes no prior knowledge and takes the reader
+                    through
+                    the entire range of applications and interpretations. Examples are used with excellent quality
+                    ultrasound
+                    images and labelled in detail which provides the newcomer with clear images to use for reference.
+                </p>
+                <p>
+                    Its systematic and structured approach makes each chapter a learning module but also it can be a
+                    reference
+                    book to dip into. The chapters comprise a greater portion of images than text, and the style is direct
+                    and
+                    concise with appropriate practical learning points throughout given by the author with extensive
+                    practical
+                    experience.
+                </p>
+                <p>
+                    The wide range of ultrasound images mean that examples of all common conditions have been collected for
+                    reference. The book would be ideally placed in the ultrasound examination room for comparisons to be
+                    made by
+                    the sonographer in training. Qualified sonographers will also find this ideal for revision and reference
+                    as
+                    will trainee doctors entering fetal medicine.
+                </p>
+                <p>
+                    I found the book ideal as a teaching aid to use in the scan room. The title gives no hint of the more
+                    extended content of other first trimester anomalies found incidental to nuchal screening such as
+                    megacystis
+                    and omphalocoele which gives a more rounded and comprehensive picture of first trimester screening.
+                </p>
+                <p>
+                    The inclusion of early pregnancy complications into the realm of early pregnancy assessment is useful
+                    and
+                    particularly the cases combining pregnancy with benign gynaecological pathology such as the complex
+                    ovarian
+                    cyst, fibroids and pregnancy with an IUCD. The inclusion of an IVF pregnancy and the dilemma of not
+                    redating
+                    it at the time of NT screening but using dating derived from IVF treatment is instructive as is the case
+                    of
+                    Ovarian Hyperstimulation Syndrome with co-existing pregnancy.
+                </p>
+                <p>
+                    The setting in which the author works has allowed for uncommon scenarios to be presented such as
+                    pregnancy
+                    with a transplanted kidney in the pelvis. Chapter 5 incorporates a useful section on “What’s wrong with
+                    these images?” which is very appropriate when auditing image quality and pertinent to everyday practice.
+                </p>
+                <p>
+                    The last chapter comprises of 40 case presentations all relevant to pregnancy, again well illustrated,
+                    some
+                    more common place than others. Its size makes it a true handbook and portable to use in the work
+                    environment.
+                </p>
+                <p>
+                    The index is limited but adequate and balanced by the clearly labelled table of content in the
+                    preliminary
+                    pages. It’s the book to carry around and dip into regularly. The author describes that only the best
+                    obtainable views have been used for illustration which makes the examples all the more useful for
+                    teaching
+                    purposes. The websites referenced are limited to imaging and are pertinent to the text.
+                </p>",
+            ],
+            [
+                "id" => 2,
+                "title" => "Ultrasound Services in An Early Pregnancy and Acute Gynaecological Unit. Book 1",
+                "author" => "OLA-OJO, OLUWAKEMI O",
+                'book_cover' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/1908015071.jpg?viewkey=037e9b66a5cfb9590d48955209dcce1d63af4f9097e4626934ed22ee8cede829',
+                'link' => 'https://shop.ingramspark.com/b/084?params=Ps22anVgXRnpSVcx3zDTwpkC2GUBbhuktkLXU5Y5Yv8',
+                'coming_soon' => false,
+                "review" => "This book is a must-have for any sonographer working in early pregnancy and acute care. It covers the latest techniques and protocols, making it an invaluable resource for both new and experienced practitioners.",
+            ],
+            [
+                "id" => 3,
+                "title" => "Ultrasound Services in An Early Pregnancy and Acute Gynaecological Unit. Book 2",
+                "author" => "Ola-Ojo, Oluwakemi",
+                'book_cover' => 'https://image-hub-cloud.lightningsource.com/2011-04-01/Images/front_cover/x200/sku/190801508X.jpg?viewkey=a97f90229362d7a0bb6a48fd9ba49c571caf600d6a000f0538a91e6dfde56f5d',
+                'link' => 'https://shop.ingramspark.com/b/084?params=GJjL4uBvIjUAJx6XAkNne92mauRHuGsmpHyERmez3kz',
+                'coming_soon' => false,
+                "review" => "This book is an essential guide for sonographers performing anomaly scans. It provides detailed information on the techniques and protocols involved, making it a valuable resource for any practitioner in this field.",
+            ],
+            [
+                "id" => 4,
+                "title" => "Trisemester Scan for the Ultrasonographer",
+                "author" => "Ola-Ojo, Oluwakemi",
+                "book_cover" => "./images/Anomaly-Scan-Cover.jpeg",
+                'link' => '/protokos-publishers',
+                'coming_soon' => true,
+                "review" => "This book is a comprehensive guide for sonographers performing trisemester scans. It covers the latest techniques and protocols, making it an invaluable resource for both new and experienced practitioners.",
+            ],
+            [
+                "id" => 5,
+                "title" => "Ultrasound Services in An Early Pregnancy and Acute Care",
+                "author" => "Ola-Ojo, Oluwakemi, Edited by Spiliopoulos, Dimitrios,",
+                "book_cover" => "./images/Trisemester-Scan-Cover.jpeg",
+                'link' => '/protokos-publishers',
+                'coming_soon' => true,
+                "review" => "This book is a must-have for any sonographer working in early pregnancy and acute care. It covers the latest techniques and protocols, making it an invaluable resource for both new and experienced practitioners.",
+            ],
+            // [
+            //     "id" => 6,
+            //     "title" => "Ultrasound Services in An Early Pregnancy and Acute Care",
+            //     "author" => "Ola-Ojo, Oluwakemi, Edited by Spiliopoulos, Dimitrios,",
+            //     "book_cover" => "./images/Ultrasound-Services-Cover.jpeg",
+            //     "review" => "This book is a must-have for any sonographer working in early pregnancy and acute care. It covers the latest techniques and protocols, making it an invaluable resource for both new and experienced practitioners.",
+            // ],
+        ];
+
+        $book = collect($ingramSparkBooks)->firstWhere('id', (int)$id);
+
+        return View('general.book-review', compact('book'));
     }
 
     public function medical()

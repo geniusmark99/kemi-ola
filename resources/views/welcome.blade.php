@@ -19,29 +19,27 @@
 
         <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
             <h1 style="font-family: 'neueMachina-light', sans-serif;" data-scroll data-scroll-speed="2"
-                class="text-5xl md:text-6xl lg:text-7xl text-center lg:leading-14 uppercase font-extrabold drop-shadow-md bg-clip-text text-transparent bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple">
-                About
+                class="text-2xl md:text-3xl lg:text-4xl text-center lg:leading-14 uppercase font-extrabold drop-shadow-md bg-clip-text text-transparent bg-gradient-to-r from-kemi-ojo to-kemi-ojo-purple">
+                About Olúwákẹ́mi O. Ọlá-Òjó
             </h1>
 
 
             <div class="flex flex-col w-full lg:flex-row gap-y-10 lg:gap-y-0 justify-center items-start lg:gap-x-20 mt-10">
                 <div class="w-full lg:w-6/12 flex flex-col gap-y-5 magnectic">
 
-                    <p class="mt-3 text-lg text-kemi-ojo leading-8">
+                    <p class="mt-3 text-lg md:text-xl text-kemi-ojo leading-8">
                         Olúwákẹ́mi O. Ọlá-Òjó is a distinguished ultrasonographer, author, and educator committed to
-                        empowering
-                        professionals and individuals through knowledge. She began her medical career at University College
-                        Hospital (UCH), Ibadan, Nigeria, where she trained as a radiographer, before earning a Master of
-                        Science
-                        degree from City University London.
+                        empowering professionals and individuals through knowledge. She began her medical career at
+                        University College Hospital (UCH), Ibadan, Nigeria, where she trained as a radiographer before
+                        earning a Master of Science degree from City University London.
                     </p>
 
-                    <p class="mt-3 text-lg text-kemi-ojo leading-8">
-                        With a passion for ultrasound education, she authored the widely acclaimed
-                        <b class="italic">
-                            "Obstetrics and Gynaecological
-                            Ultrasound: A Self-Assessment Guide, published in 2005 by Churchill Livingstone - Elsevier".
-                        </b>
+                    <p class="mt-3 text-lg md:text-xl text-kemi-ojo leading-8">
+                        With a passion for ultrasound education, she authored the widely acclaimed Obstetrics and
+                        Gynaecological Ultrasound: A Self-Assessment Guide, published in 2005 by Churchill Livingstone –
+                        Elsevier. This book has become an essential resource for ultrasonographers and doctors worldwide,
+                        aiding in preparation for professional examinations in obstetric and gynecological ultrasound.
+
                         This book
                         has become an essential resource for ultrasonographers and doctors worldwide, aiding in preparation
                         for
@@ -53,7 +51,7 @@
                     <p class="mt-3 text-lg text-kemi-ojo leading-8">
 
 
-                    <div>
+                    <div class="text-lg md:text-xl">
 
                         <div class="text-kemi-ojo my-2">
                             Her contributions to the field include several other specialized
@@ -88,12 +86,13 @@
                     </p>
 
 
-                    <p class="mt-3 text-lg text-kemi-ojo leading-8">
+                    <p class="mt-3 text-lg md:text-xl text-kemi-ojo leading-8 ">
                         Beyond medical imaging, she is a prolific author across multiple genres, known for her simple yet
-                        profound writing style. Her works are engaging, practical, and deeply inspiring, reflecting her
-                        passion
-                        for impacting lives through knowledge and wisdom.
-                        Explore her books and resources to learn, grow, and be inspired!
+                        profound writing style. Her works are engaging, practical, and deeply inspiring—reflecting her
+                        passion for impacting lives through knowledge and wisdom.
+                        <a href="{{ route('favour') }}" class="font-semibold  hover:underline">
+                            Explore her books and resources to learn, grow, and be inspired!
+                        </a>
                     </p>
 
 
@@ -105,6 +104,7 @@
                     <img class="w-full object-contain" src="{{ asset('images/bg003.jpg') }}" alt="Hero Image">
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -129,10 +129,9 @@
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Card -->
                     <div
-                        class=" group flex flex-col h-full bg-white border overflow-hidden border-gray-200 shadow-sm rounded-xl">
-                        <div class="h-52 flex flex-col justify-center items-center  rounded-t-xl bg-cover bg-no-repeat"
-                            style="background-image:  url('/images/protokos-publisher-logo.png')">
-
+                        class=" group flex flex-col h-full bg-white border-2 overflow-hidden border-gray-200 hover:border-kemi-ojo shadow-sm rounded-xl">
+                        <div class="h-52 flex flex-col justify-center items-center rounded-t-xl">
+                            <img src="{{ asset('/images/protokos-new-logo.jpeg') }}" alt="">
                         </div>
                         <div class="p-4 md:p-6">
 
@@ -144,7 +143,7 @@
                             </p>
                         </div>
                         <div class="mt-auto flex border-t  border-gray-200 divide-x divide-gray-200">
-                            <a class=" w-full  py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white hover:kemi-ojo-bg hover:text-white transition-all text-gray-800  shadow-sm  focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                            <a class=" w-full  py-3 px-4 inline-flex justify-center bg-kemi-ojo text-white items-center gap-x-2 text-sm font-medium rounded-es-xl hover:kemi-ojo-bg hover:text-white transition-all shadow-sm  focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                 href="{{ route('protokos') }}">
                                 View
                             </a>
@@ -155,9 +154,11 @@
 
                     <!-- Card -->
                     <div
-                        class=" group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm rounded-xl">
-                        <div class="h-52 flex flex-col justify-center items-center bg-kemi-ojo rounded-t-xl bg-cover"
-                            style="background-image:  url('/images/favour-online-logo-2.jpg')">
+                        class=" group flex flex-col h-full bg-white overflow-hidden border-2 border-gray-200 hover:border-kemi-ojo shadow-sm rounded-xl">
+                        <div
+                            class="h-52 flex flex-col justify-center items-center bg-kemi-ojo rounded-t-xl bg-cover bg-no-repeat">
+                            <img src="{{ asset('/images/favour-online-logo-2.jpg') }}" alt="">
+
                         </div>
                         <div class="p-4 md:p-6">
 
@@ -170,7 +171,7 @@
                             </p>
                         </div>
                         <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200">
-                            <a class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white hover:kemi-ojo-bg hover:text-white transition-all text-gray-800 shadow-sm focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                            <a class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-kemi-ojo text-white hover:kemi-ojo-bg hover:text-white transition-all shadow-sm focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                 href="{{ route('favour') }}">
                                 View
                             </a>
@@ -183,9 +184,14 @@
 
                     <!-- Card -->
                     <div
-                        class=" group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm rounded-xl">
-                        <div class="h-52 overflow-hidden flex flex-col justify-center items-center bg-kemi-ojo rounded-t-xl bg-cover bg-no-repeat"
-                            style="background-image:  url('/images/Protokos-logo.png')">
+                        class=" group flex flex-col h-full bg-white overflow-hidden border-2 border-gray-200 hover:border-kemi-ojo shadow-sm rounded-xl">
+                        <div
+                            class="h-52 overflow-hidden flex flex-col justify-center items-center bg-kemi-ojo rounded-t-xl bg-cover bg-no-repeat">
+
+                            <img src="{{ asset('/images/protokos-medical-logo.jpeg') }}" class="h-[30vh] w-full"
+                                alt="">
+
+
 
                         </div>
                         <div class="p-4 md:p-6">
@@ -199,7 +205,7 @@
                             </p>
                         </div>
                         <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200">
-                            <a class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white hover:kemi-ojo-bg hover:text-white transition-all text-gray-800 shadow-sm focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                            <a class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-kemi-ojo text-white hover:kemi-ojo-bg hover:text-white transition-all shadow-sm focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                 href="{{ route('medical') }}">
                                 View
                             </a>
@@ -210,10 +216,12 @@
 
 
                     <!-- Card -->
-                    <div class=group flex flex-col h-full bg-white overflow-hidden border border-gray-200 shadow-sm
-                        rounded-xl">
-                        <div class="h-52 flex flex-col overflow-hidden justify-center items-center rounded-t-xl bg-cover"
-                            style="background-image:  url('/images/ede-yoruba.jpg')">
+                    <div
+                        class="group flex flex-col h-full bg-white overflow-hidden border-2 border-gray-200 hover:border-kemi-ojo shadow-sm rounded-xl">
+                        <div
+                            class="h-52 flex flex-col overflow-hidden justify-center items-center rounded-t-xl bg-cover bg-no-repeat">
+                            <img src="{{ asset('/images/ile-eko-logo.jpeg') }}" alt="" class="h-[30vh] w-full">
+
                         </div>
                         <div class="p-4 md:p-6">
 
@@ -226,7 +234,7 @@
                             </p>
                         </div>
                         <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200">
-                            <a class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white hover:kemi-ojo-bg hover:text-white transition-all text-gray-800 shadow-sm focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                            <a class="w-full py-3 px-4 inline-flex justify-center bg-kemi-ojo text-white items-center gap-x-2 text-sm font-medium rounded-es-xl hover:kemi-ojo-bg hover:text-white transition-all shadow-sm focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                 href="{{ route('ede-yoruba') }}">
                                 View
                             </a>
@@ -470,12 +478,16 @@
                     el: '.swiper-pagination',
                     clickable: true,
                 },
-                slidesPerView: 1,
-                effect: 'cube',
-                cubeEffect: {
-                    shadow: false,
-                    slideShadows: false,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
                 },
+                slidesPerView: 1,
+                // effect: 'fade',
+                // cubeEffect: {
+                //     shadow: false,
+                //     slideShadows: false,
+                // },
             });
         });
     </script>
