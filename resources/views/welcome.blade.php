@@ -35,8 +35,12 @@
                     </p>
 
                     <p class="mt-3 text-lg md:text-xl text-kemi-ojo leading-8">
-                        With a passion for ultrasound education, she authored the widely acclaimed Obstetrics and
-                        Gynaecological Ultrasound: A Self-Assessment Guide, published in 2005 by Churchill Livingstone –
+                        <span class="text-kemi-ojo font-semibold">
+                            With a passion for ultrasound education, she authored the widely acclaimed
+                        </span>
+                        Obstetrics and Gynaecological Ultrasound: A Self-Assessment Guide,
+                        <span class="text-kemi-ojo font-semibold">published in 2005 by Churchill
+                            Livingstone – </span>
                         Elsevier. This book has become an essential resource for ultrasonographers and doctors worldwide,
                         aiding in preparation for professional examinations in obstetric and gynecological ultrasound.
 
@@ -483,11 +487,7 @@
                     prevEl: '.swiper-button-prev',
                 },
                 slidesPerView: 1,
-                // effect: 'fade',
-                // cubeEffect: {
-                //     shadow: false,
-                //     slideShadows: false,
-                // },
+
             });
         });
     </script>

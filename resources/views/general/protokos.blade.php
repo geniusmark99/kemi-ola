@@ -19,7 +19,7 @@
                 <div class="z-30 mt-10 flex flex-col w-full lg:max-w-md relative">
                     <div class="flex items-center w-full ">
                         <input type="text" class="w-full py-2.5 lg:py-4" id="searchInput" x-model="search"
-                            placeholder="Search for books by Kemi Olaojo">
+                            placeholder="Search for books by Olúwákẹ́mi O. Ọlá-Òjó">
 
 
                         <button
@@ -152,8 +152,8 @@
             <div class="container mx-auto px-4">
                 <div class="mx-auto mb-12 max-w-lg text-center lg:max-w-2xl">
                     <h2 style="font-family: 'neueMachina-ultrabold', sans-serif;"
-                        class=" text-kemi-ojo mt-2 text-3xl font-bold leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight">
-                        Books by Kemi Olaojo
+                        class=" text-kemi-ojo mt-2 text-2xl font-bold leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight">
+                        Books by <div class="text-kemi-ojo font-semibold">Olúwákẹ́mi O. Ọlá-Òjó</div>
                     </h2>
                 </div>
 
@@ -326,6 +326,7 @@
                 </h1>
                 <p class="italic text-blue-600 mt-2">
                     by Olúwákẹ́mi Olá-Òjó
+
                 </p>
 
 
@@ -404,7 +405,7 @@
                     <div class="hidden lg:block lg:border-l border-black w-[1px] bg-kemi-ojo h-screen"></div>
 
                     <div class="lg:col-span-4 w-full flex justify-center lg:w-6/12">
-                        <img class="w-full object-contain" src="{{ asset('/images/protokos-21-years.jpeg') }}"
+                        <img class="w-full object-contain" src="{{ asset('/images/kemi-olaojo-protokos-medical.jpeg') }}"
                             alt="Hero Image">
                     </div>
                 </div>

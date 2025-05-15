@@ -66,8 +66,8 @@
             </div>
 
             <!-- Right Image -->
-            <div class="px-6 py-10 h-screen lg:h-[70vh] md:px-12 lg:px-20 mt-8 lg:mt-0 flex justify-center lg:w-6/12 bg-contain bg-no-repeat"
-                style="background-image: url('images/kemi-olaojo-protokos-medical.jpeg')">
+            <div class="px-6 py-10  h-screen lg:h-[70vh] md:px-12 lg:px-20 mt-8 lg:mt-0 flex justify-center lg:w-6/12 bg-cover bg-no-repeat"
+                style="background-image: url('images/protokos-medical-ultrasound.jpeg')">
                 {{-- kemi-olaojo-protokos-medical --}}
                 {{-- pregnant-woman-receiving-ultrasound-scan-stomach.jpg --}}
 
@@ -106,7 +106,7 @@
 
                         <div data-scroll data-scroll-speed="2"
                             class="w-full lg:w-6/12 h-screen lg:h-[70vh] bg-cover bg-no-repeat"
-                            style="background-image: url('images/bg001.jpg')">
+                            style="background-image: url('images/protokos-medical-ultrasound-2.jpeg')">
 
                         </div>
 
